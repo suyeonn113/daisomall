@@ -195,10 +195,10 @@ src
 │  ├─ categoryDrawerData.js
 │  │  (드로어 전체 카테고리 데이터)
 │  │	activeMainTab
-│  │	→ daiso / beautyHealth / newArrival
+│  │	→ 다이소 / 뷰티&헬스 / 신상
 │  │
 │  │	activeMenu
-│  │	→ category / brand
+│  │	→ 카테고리 / 브랜드
 │  │	
 │  │	menuItems
 │  │	→ 캐릭터샵 / 펫토피아 / SNS핫템 / 오늘배송 / 매장픽업 / 대량주문 
