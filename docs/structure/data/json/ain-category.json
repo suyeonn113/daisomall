@@ -7,15 +7,22 @@
         {
             "id":"beauty",
             "name":"뷰티/위생",
-            "sub_category":[
+            "children":[
                 {
                     "id":"skincare",
                     "name":"스킨케어",
-                    "sub_sub_category":[
+                    "children":[
                         {"id":"toner","name":"스킨/토너"},
-                        {"id":"serum","name":"에센스/세럼/앰플"}
+                        {"id":"serum","name":"에센스/세럼/앰플"},
+                        {"id":"cream","name":"크림"},
+                        {"id":"lotion","name":"로션"},
+                        {"id":"mist_fixer","name":"미스트/픽서"},
+                        {"id":"spot_care","name":"스팟케어"}
                     ]
-            }
+                },
+                {
+                    "id":"mask", "name":"마스크팩"
+                }
             ]
         },
         {
