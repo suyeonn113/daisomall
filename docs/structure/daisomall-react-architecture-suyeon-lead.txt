@@ -73,11 +73,11 @@ src
 │  │  │  │
 │  │  │  ├─ CategoryDrawer.scss
 │  │  │  ├─ CategoryDrawerHeader.jsx → activeMainTab 제어
-│  │  │   |   (상단 탭: 다이소 / 뷰티&헬스 / 신상 + 닫기 버튼)
+│  │  │  |   (상단 탭: 다이소 / 뷰티&헬스 / 신상 + 닫기 버튼)
 │  │  │  │
 │  │  │  ├─ CategoryDrawerMenu.jsx → activeMenu + menuItems 제어
-│  │  │   |   (콘텐츠 탭: 카테고리 / 브랜드)
-│  │  │   |   (캐릭터샵 / 펫토피아 / SNS핫템 / 매장픽업 / 대량주문 / 오늘배송)
+│  │  │  |   (콘텐츠 탭: 카테고리 / 브랜드)
+│  │  │  |   (캐릭터샵 / 펫토피아 / SNS핫템 / 매장픽업 / 대량주문 / 오늘배송)
 │  │  │  │
 │  │  │  ├─ CategoryDrawerSidebar.jsx → category.sidebar 렌더
 │  │  │  │  (왼쪽 카테고리 리스트)
