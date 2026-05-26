@@ -1,0 +1,9 @@
+.app-shell {
+  min-height: 100dvh;
+  background: var(--color-bg-main);
+  color: var(--color-text);
+}
+
+.app-shell__main {
+  padding-bottom: var(--bottom-tab-height);
+}

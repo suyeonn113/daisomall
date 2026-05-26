@@ -1,0 +1,102 @@
+/* ================================
+   MAPS
+================================ */
+
+/* Sass-only values used by functions and mixins. */
+
+/* =========================
+   BREAKPOINT
+========================= */
+
+$breakpoints: (
+  mobile-xs: 360px,
+  mobile-sm: 390px,
+  mobile: 430px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1280px,
+);
+
+/* =========================
+   SPACING
+========================= */
+
+$spacing: (
+  0: 0,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  7: 28px,
+  8: 32px,
+  10: 40px,
+  12: 48px,
+  16: 64px,
+);
+
+/* =========================
+   FONT SIZE
+========================= */
+
+$font-sizes: (
+  display: (
+    default: 26px,
+    mobile-sm: 24px,
+    mobile-xs: 22px,
+  ),
+  title-lg: (
+    default: 20px,
+    mobile-sm: 19px,
+    mobile-xs: 18px,
+  ),
+  title: (
+    default: 18px,
+    mobile-sm: 17px,
+    mobile-xs: 16px,
+  ),
+  body: (
+    default: 14px,
+    mobile-sm: 14px,
+    mobile-xs: 13px,
+  ),
+  caption: (
+    default: 12px,
+    mobile-sm: 12px,
+    mobile-xs: 11px,
+  ),
+  micro: (
+    default: 11px,
+    mobile-sm: 11px,
+    mobile-xs: 10px,
+  ),
+);
+
+/* =========================
+   RADIUS
+========================= */
+
+$radius: (
+  xs: 2px,
+  sm: 4px,
+  md: 6px,
+  lg: 8px,
+  pill: 999px,
+  circle: 50%,
+);
+
+/* =========================
+   Z-INDEX
+========================= */
+
+$z-indexes: (
+  hide: -1,
+  base: 1,
+  sticky: 20,
+  bottom-bar: 30,
+  overlay: 40,
+  drawer: 50,
+  modal: 60,
+  toast: 100,
+);

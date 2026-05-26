@@ -1,0 +1,186 @@
+/* ================================
+   TOKENS
+================================ */
+
+/* CSS custom properties used directly in rendered styles. */
+
+:root {
+  /* =========================
+     COLOR
+  ========================= */
+
+  --color-white: #ffffff;
+  --color-white-rgb: 255 255 255;
+  --color-black: #111111;
+  --color-black-rgb: 17 17 17;
+
+  --color-white-soft: rgb(var(--color-white-rgb) / 0.08);
+  --color-white-medium: rgb(var(--color-white-rgb) / 0.16);
+  --color-white-hard: rgb(var(--color-white-rgb) / 0.86);
+  --color-black-soft: rgb(var(--color-black-rgb) / 0.08);
+  --color-black-medium: rgb(var(--color-black-rgb) / 0.16);
+  --color-black-hard: rgb(var(--color-black-rgb) / 0.86);
+
+  /* Brand */
+  --color-brand-red: #d70018;
+  --color-brand-red-dark: #b80014;
+  --color-brand-blue: #0054a6;
+
+  /* Text */
+  --color-text-primary: #222222;
+  --color-text-secondary: #555555;
+  --color-text-tertiary: #777777;
+  --color-text-muted: #999999;
+  --color-text-inverse: #ffffff;
+
+  /* Background */
+  --color-bg-page: #f3f3f3;
+  --color-bg-main: #ffffff;
+  --color-bg-sub: #f7f7f7;
+  --color-bg-chip: #f2f2f2;
+  --color-bg-dark: #303030;
+  --color-bg-backdrop: rgb(var(--color-black-rgb) / 0.35);
+  --color-bg-header: rgb(80 76 66 / 0.78);
+
+  /* Border */
+  --color-border-primary: #e5e5e5;
+  --color-border-secondary: #dddddd;
+  --color-border-strong: #cccccc;
+
+  /* Service */
+  --color-service-delivery: #2f3f55;
+  --color-service-pickup: #e60021;
+  --color-service-today: #6e26ff;
+  --color-service-bulk: #2f83ff;
+
+  /* State */
+  --color-focus-ring: var(--color-brand-blue);
+  --focus-ring-width: 2px;
+
+  /* Compatibility aliases */
+  --color-page: var(--color-bg-page);
+  --color-bg: var(--color-bg-main);
+  --color-text: var(--color-text-primary);
+  --color-muted: var(--color-text-tertiary);
+  --color-line: var(--color-border-primary);
+  --color-primary: var(--color-brand-red);
+  --color-dark: var(--color-bg-dark);
+  --color-chip: var(--color-bg-chip);
+
+  /* =========================
+     TYPOGRAPHY
+  ========================= */
+
+  --font-family-base:
+    'Pretendard',
+    'SUIT',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  --font-size-base: 14px;
+  --font-size-display: 26px;
+  --font-size-title-lg: 20px;
+  --font-size-title: 18px;
+  --font-size-body: 14px;
+  --font-size-caption: 12px;
+  --font-size-micro: 11px;
+
+  --line-height-base: 1.45;
+  --line-height-tight: 1.2;
+  --line-height-comfy: 1.6;
+
+  /* =========================
+     LAYOUT
+  ========================= */
+
+  --layout-min-width: 320px;
+  --layout-max-width: 430px;
+  --layout-wide-width: 768px;
+
+  --header-height: 88px;
+  --header-bar-height: 42px;
+  --header-nav-height: 38px;
+  --bottom-tab-height: 64px;
+  --drawer-width: min(100vw, var(--layout-max-width));
+
+  /* =========================
+     SPACING
+  ========================= */
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* =========================
+     ICON / COMPONENT
+  ========================= */
+
+  --icon-size-xs: 14px;
+  --icon-size-sm: 18px;
+  --icon-size-md: 22px;
+  --icon-size-lg: 28px;
+
+  --shortcut-size: 52px;
+  --category-icon-size: 40px;
+  --product-card-min-width: 132px;
+  --new-arrival-card-width: 78%;
+  --hero-height: 280px;
+  --hero-copy-offset-top: 108px;
+  --new-arrival-card-height: 240px;
+  --promotion-card-height: 180px;
+  --delivery-card-min-height: 68px;
+  --drawer-sidebar-width: 112px;
+  --drawer-content-offset: 104px;
+  --product-rank-offset: 52px;
+  --product-rank-indent: -18px;
+  --app-icon-size: 36px;
+
+  /* =========================
+     RADIUS
+  ========================= */
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+  --radius-focus: 6px;
+
+  /* =========================
+     SHADOW
+  ========================= */
+
+  --shadow-sm: 0 2px 8px rgb(var(--color-black-rgb) / 0.06);
+  --shadow-md: 0 8px 24px rgb(var(--color-black-rgb) / 0.1);
+
+  /* =========================
+     LINE
+  ========================= */
+
+  --line-thin: 1px;
+  --line-bold: 2px;
+
+  /* =========================
+     TRANSITION
+  ========================= */
+
+  --duration-fast: 0.18s;
+  --duration-base: 0.28s;
+  --duration-panel: 0.36s;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-panel: cubic-bezier(0.16, 1, 0.3, 1);
+}

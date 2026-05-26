@@ -1,0 +1,147 @@
+/* ================================
+   MIXINS
+================================ */
+
+@use 'sass:map';
+
+@use './maps' as *;
+@use './functions' as *;
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@mixin respond-down($device) {
+  @media (max-width: map.get($breakpoints, $device)) {
+    @content;
+  }
+}
+
+@mixin respond-up($device) {
+  @media (min-width: map.get($breakpoints, $device)) {
+    @content;
+  }
+}
+
+@mixin mobile-shell {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+}
+
+@mixin page-band($background: var(--color-bg-main)) {
+  @include mobile-shell;
+
+  background: $background;
+}
+
+@mixin section-padding($block: 6, $inline: 4) {
+  padding: get-space($block) get-space($inline);
+
+  @include respond-down(mobile-xs) {
+    padding-inline: get-space(3);
+  }
+}
+
+/* =========================
+   FLEX / GRID
+========================= */
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin grid-columns($count, $gap: 3) {
+  display: grid;
+  grid-template-columns: repeat($count, minmax(0, 1fr));
+  gap: get-space($gap);
+}
+
+@mixin scroll-row($column-width, $gap: 3) {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: $column-width;
+  gap: get-space($gap);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* =========================
+   UI
+========================= */
+
+@mixin icon-button($size: 28px) {
+  display: grid;
+  width: $size;
+  height: $size;
+  place-items: center;
+  color: inherit;
+}
+
+@mixin chip($background: var(--color-bg-chip), $color: var(--color-text-muted)) {
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  background: $background;
+  color: $color;
+  font-size: var(--font-size-caption);
+  white-space: nowrap;
+}
+
+@mixin image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+@mixin text-size($key) {
+  font-size: get-font-size($key);
+
+  @include respond-down(mobile-sm) {
+    font-size: get-font-size($key, mobile-sm);
+  }
+
+  @include respond-down(mobile-xs) {
+    font-size: get-font-size($key, mobile-xs);
+  }
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin ellipsis-multi($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+/* =========================
+   TRANSITION
+========================= */
+
+@mixin transition($property: all, $duration: base, $easing: standard) {
+  transition:
+    $property
+    var(--duration-#{$duration})
+    var(--ease-#{$easing});
+}

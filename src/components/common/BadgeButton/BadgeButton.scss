@@ -1,0 +1,10 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.badge-button {
+  @include chip;
+}
+
+.badge-button.is-active {
+  background: var(--color-black);
+  color: var(--color-text-inverse);
+}

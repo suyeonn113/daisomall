@@ -1,0 +1,11 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.home-section {
+  @include section-padding(6, 4);
+
+  background: var(--color-bg);
+}
+
+.home-section + .home-section {
+  margin-top: var(--space-2);
+}

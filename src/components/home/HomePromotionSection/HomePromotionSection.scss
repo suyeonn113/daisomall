@@ -1,0 +1,54 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.promotion-tab-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.promotion-tab-button {
+  color: var(--color-muted);
+  font-size: var(--font-size-caption);
+}
+
+.promotion-tab-button.is-active {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.promotion-banner-card {
+  position: relative;
+  overflow: hidden;
+  min-height: var(--promotion-card-height);
+  background: var(--color-bg-sub);
+}
+
+.promotion-banner-card img {
+  @include image-cover;
+
+  height: var(--promotion-card-height);
+}
+
+.promotion-banner-card strong {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  left: var(--space-4);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-title);
+}
+
+.promotion-accordion-list {
+  display: grid;
+  margin-top: var(--space-2);
+}
+
+.promotion-accordion-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-black-hard);
+  color: var(--color-text-inverse);
+}

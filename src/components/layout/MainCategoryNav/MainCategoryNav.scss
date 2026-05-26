@@ -1,0 +1,21 @@
+@use '../../../styles/foundation/functions' as *;
+@use '../../../styles/foundation/mixins' as *;
+
+.main-category-nav {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  padding: 0 var(--space-4) var(--space-2);
+  scrollbar-width: none;
+}
+
+.main-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-category-nav__item {
+  display: block;
+  white-space: nowrap;
+  font-size: get-font-size(body, mobile-xs);
+  line-height: var(--header-nav-height);
+}

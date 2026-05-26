@@ -1,0 +1,7 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.ranking-tab-list {
+  @include scroll-row(max-content, 2);
+
+  margin-bottom: var(--space-4);
+}

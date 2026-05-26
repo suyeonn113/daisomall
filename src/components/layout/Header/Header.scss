@@ -1,0 +1,57 @@
+@use '../../../styles/foundation/functions' as *;
+@use '../../../styles/foundation/mixins' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: get-z(sticky);
+  color: var(--color-text-inverse);
+  background: var(--color-bg-header);
+  backdrop-filter: blur(get-space(2));
+
+  @include mobile-shell;
+}
+
+.site-header__bar {
+  @include flex-center;
+
+  justify-content: flex-start;
+  height: 42px;
+  padding: 0 var(--space-3);
+  gap: var(--space-2);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  @include text-size(title);
+
+  line-height: 1;
+}
+
+.site-header__logo .logo__symbol {
+  width: 17px;
+  height: 16px;
+}
+
+.site-header__logo .logo__wordmark {
+  width: 58px;
+  height: 14px;
+}
+
+.site-header__store {
+  color: inherit;
+  font-size: var(--font-size-caption);
+}
+
+.site-header__actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.site-header__icon-button {
+  @include icon-button(var(--icon-size-lg));
+}

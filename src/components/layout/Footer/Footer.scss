@@ -1,0 +1,44 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.site-footer {
+  @include mobile-shell;
+
+  padding: var(--space-8) var(--space-4) calc(var(--bottom-tab-height) + var(--space-6));
+  background: var(--color-dark);
+  color: var(--color-border-strong);
+  text-align: center;
+}
+
+.site-footer__app {
+  @include flex-center;
+
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-caption);
+}
+
+.site-footer__app-icon {
+  width: var(--app-icon-size);
+  height: var(--app-icon-size);
+  border-radius: 50%;
+  background: var(--color-text-tertiary);
+}
+
+.site-footer__columns {
+  @include grid-columns(2, 4);
+
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-caption);
+}
+
+.site-footer__columns h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-body);
+  color: var(--color-text-inverse);
+}
+
+.site-footer__copy {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-micro);
+}

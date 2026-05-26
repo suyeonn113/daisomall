@@ -1,0 +1,16 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.section-header {
+  @include flex-between;
+
+  margin-bottom: var(--space-4);
+}
+
+.section-header h2 {
+  font-size: var(--font-size-title);
+}
+
+.section-header a {
+  color: var(--color-muted);
+  font-size: var(--font-size-caption);
+}

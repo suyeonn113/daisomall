@@ -1,0 +1,46 @@
+@use '../../../styles/foundation/functions' as *;
+@use '../../../styles/foundation/mixins' as *;
+
+.home-hero-section {
+  margin-top: calc(var(--header-height) * -1);
+}
+
+.hero-banner {
+  position: relative;
+  min-height: var(--hero-height);
+  color: var(--color-text-inverse);
+  background: var(--color-border-strong);
+}
+
+.hero-banner__image {
+  @include image-cover;
+
+  height: var(--hero-height);
+}
+
+.hero-banner__content {
+  position: absolute;
+  top: var(--hero-copy-offset-top);
+  left: var(--space-5);
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--font-size-title-lg);
+  line-height: 1.35;
+  text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-medium);
+}
+
+.hero-banner__pagination {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  display: flex;
+  gap: var(--space-2);
+  transform: translateX(-50%);
+}
+
+.hero-banner__pagination span {
+  width: var(--space-7);
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white-hard);
+}

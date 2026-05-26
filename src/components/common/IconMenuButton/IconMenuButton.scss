@@ -1,0 +1,22 @@
+.icon-menu-button {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+  color: var(--color-text);
+  font-size: var(--font-size-caption);
+}
+
+.icon-menu-button__image {
+  display: grid;
+  width: var(--shortcut-size);
+  height: var(--shortcut-size);
+  place-items: center;
+  border-radius: var(--radius-circle);
+  background: var(--color-chip);
+}
+
+.icon-menu-button__image img {
+  width: calc(var(--shortcut-size) - 18px);
+  height: calc(var(--shortcut-size) - 18px);
+  object-fit: contain;
+}

@@ -1,0 +1,38 @@
+export const products = [
+  {
+    id: 'product-1',
+    name: '상품명이 들어가는 자리',
+    price: 5000,
+    rating: 5,
+    reviewCount: 3050,
+    image: '/images/products/ex01.webp',
+    label: '구매 1.5만+',
+  },
+  {
+    id: 'product-2',
+    name: '데일리 생활용품 샘플',
+    price: 5000,
+    rating: 4.8,
+    reviewCount: 982,
+    image: '/images/products/ex02.webp',
+    label: '신상',
+  },
+  {
+    id: 'product-3',
+    name: '오전 배송 인기 상품',
+    price: 3000,
+    rating: 4.7,
+    reviewCount: 788,
+    image: '/images/products/ex03.webp',
+    label: '오늘배송',
+  },
+  {
+    id: 'product-4',
+    name: '매장픽업 추천 상품',
+    price: 5000,
+    rating: 5,
+    reviewCount: 999,
+    image: '/images/products/ex04.webp',
+    label: '픽업',
+  },
+]

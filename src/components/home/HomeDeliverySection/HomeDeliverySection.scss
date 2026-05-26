@@ -1,0 +1,42 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.delivery-service-grid {
+  @include grid-columns(2, 2);
+}
+
+.delivery-service-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--delivery-card-min-height);
+  padding: var(--space-3);
+  background: var(--color-service-delivery);
+  color: var(--color-text-inverse);
+}
+
+.delivery-service-card--pickup {
+  background: var(--color-service-pickup);
+}
+
+.delivery-service-card--today {
+  background: var(--color-service-today);
+}
+
+.delivery-service-card--bulk {
+  background: var(--color-service-bulk);
+}
+
+.delivery-service-card img {
+  width: var(--app-icon-size);
+  height: var(--app-icon-size);
+  object-fit: contain;
+}
+
+.delivery-service-card strong {
+  font-size: var(--font-size-body);
+}
+
+.delivery-service-card p {
+  margin-top: var(--radius-xs);
+  font-size: var(--font-size-micro);
+}

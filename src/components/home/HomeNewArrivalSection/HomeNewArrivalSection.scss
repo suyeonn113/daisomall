@@ -1,0 +1,28 @@
+@use '../../../styles/foundation/mixins' as *;
+
+.new-arrival-carousel {
+  @include scroll-row(var(--new-arrival-card-width), 3);
+}
+
+.new-arrival-card {
+  position: relative;
+  min-height: var(--new-arrival-card-height);
+  overflow: hidden;
+  background: var(--color-border-secondary);
+}
+
+.new-arrival-card img {
+  @include image-cover;
+
+  height: var(--new-arrival-card-height);
+}
+
+.new-arrival-card strong {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  left: var(--space-3);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-title);
+  text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-hard);
+}
