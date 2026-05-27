@@ -3,9 +3,12 @@
 
 .main-category-nav {
   display: flex;
-  gap: var(--space-5);
+  @include responsive-space(gap, var(--space-2), var(--space-3));
+  @include responsive-space(padding-inline, var(--space-4), var(--space-5), var(--space-6));
+
   overflow-x: auto;
-  padding: 0 var(--space-4) var(--space-2);
+  border-bottom: var(--line-thin) solid var(--color-border-primary);
+  padding-block: var(--space-1);
   scrollbar-width: none;
 }
 
@@ -13,9 +16,85 @@
   display: none;
 }
 
-.main-category-nav__item {
-  display: block;
+.main-category-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--header-nav-height);
+  padding-inline: var(--space-2);
+  color: var(--color-text-secondary);
+  font-weight: 500;
   white-space: nowrap;
-  font-size: get-font-size(body, mobile-xs);
-  line-height: var(--header-nav-height);
+
+  @include transition((background, color));
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+.main-category-nav__link.is-active {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.main-category-nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  right: var(--space-2);
+  bottom: calc(-1 * var(--space-1));
+  left: var(--space-2);
+  height: var(--line-thin);
+  border-radius: var(--radius-xs);
+  background: currentColor;
+}
+
+.main-category-nav__link--beauty {
+  color: var(--color-nav-beauty-muted);
+  background: linear-gradient(
+    90deg,
+    var(--color-nav-beauty-muted) 0%,
+    var(--color-nav-beauty-muted) 52%,
+    var(--color-nav-beauty-health-muted)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-category-nav__link--beauty.is-active {
+  color: var(--color-nav-beauty);
+  background: linear-gradient(
+    90deg,
+    var(--color-nav-beauty) 0%,
+    var(--color-nav-beauty) 52%,
+    var(--color-nav-beauty-health)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-category-nav__link--beauty.is-active::after {
+  background: linear-gradient(
+    90deg,
+    var(--color-nav-beauty) 0%,
+    var(--color-nav-beauty) 52%,
+    var(--color-nav-beauty-health)
+  );
+}
+
+.main-category-nav__link--new {
+  color: var(--color-nav-new-muted);
+}
+
+.main-category-nav__link--new.is-active {
+  color: var(--color-nav-new);
+}
+
+.main-category-nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+  font-size: get-font-size(body);
+  line-height: 1;
 }

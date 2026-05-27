@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import CategoryIcon from '../../icons/CategoryIcon'
 import NotificationIcon from '../../icons/NotificationIcon'
 import SearchIcon from '../../icons/SearchIcon'
@@ -11,18 +12,45 @@ import HeaderMenuButton from './HeaderMenuButton'
 import './Header.scss'
 
 function Header({ onMenuClick }) {
+  const [isBarHidden, setIsBarHidden] = useState(false)
+  const lastScrollYRef = useRef(0)
+
+  useEffect(() => {
+    const scrollGap = 4
+    const hideOffset = 64
+
+    function handleScroll() {
+      const currentScrollY = window.scrollY
+      const scrollDiff = currentScrollY - lastScrollYRef.current
+
+      if (Math.abs(scrollDiff) < scrollGap) {
+        return
+      }
+
+      setIsBarHidden(scrollDiff > 0 && currentScrollY > hideOffset)
+      lastScrollYRef.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <header className="site-header">
-      <div className="site-header__bar">
-        <HeaderMenuButton onClick={onMenuClick} icon={<CategoryIcon size={iconSize.sm} />} />
-        <HeaderLogo />
-        <HeaderStoreButton />
-        <div className="site-header__actions">
-          <HeaderSearchButton icon={<SearchIcon size={iconSize.sm} />} />
-          <HeaderNotificationButton icon={<NotificationIcon size={iconSize.sm} />} />
+    <header className={`site-header${isBarHidden ? ' is-bar-hidden' : ''}`}>
+      <div className="site-header__content">
+        <div className="site-header__bar">
+          <HeaderLogo />
+          <HeaderStoreButton />
+          <div className="site-header__actions">
+            <HeaderSearchButton icon={<SearchIcon size={iconSize.sm} />} />
+            <HeaderNotificationButton icon={<NotificationIcon size={iconSize.sm} />} />
+          </div>
         </div>
+        <MainCategoryNav />
       </div>
-      <MainCategoryNav />
     </header>
   )
 }

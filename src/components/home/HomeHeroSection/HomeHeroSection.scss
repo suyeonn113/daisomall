@@ -2,45 +2,120 @@
 @use '../../../styles/foundation/mixins' as *;
 
 .home-hero-section {
-  margin-top: calc(var(--header-height) * -1);
+  @include responsive-space(padding, var(--space-3) var(--space-4) 0, var(--space-4) var(--space-5) 0);
+
+  background: var(--color-bg-main);
 }
 
 .hero-banner {
   position: relative;
-  min-height: var(--hero-height);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
   color: var(--color-text-inverse);
-  background: var(--color-border-strong);
+  background: var(--color-bg-sub);
+  touch-action: pan-y;
+}
+
+.hero-banner__stage {
+  position: relative;
+  height: 100%;
+}
+
+.hero-banner__poster,
+.hero-banner__preview {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: var(--line-thin) solid var(--color-border-primary);
+  background: var(--color-bg-main);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-banner__poster {
+  bottom: var(--space-4);
+  left: var(--space-4);
+  z-index: 2;
+  width: 78%;
+  animation: hero-poster-enter var(--duration-base) var(--ease-standard);
+}
+
+.hero-banner__preview {
+  object-fit: cover;
+  opacity: 0.86;
+}
+
+.hero-banner__preview--primary {
+  top: var(--space-5);
+  right: var(--space-4);
+  width: 38%;
+}
+
+.hero-banner__preview--secondary {
+  right: var(--space-8);
+  bottom: var(--space-6);
+  width: 32%;
 }
 
 .hero-banner__image {
   @include image-cover;
 
-  height: var(--hero-height);
+  height: 100%;
 }
 
 .hero-banner__content {
   position: absolute;
-  top: var(--hero-copy-offset-top);
-  left: var(--space-5);
+  bottom: var(--space-5);
+  left: var(--space-4);
   display: grid;
   gap: var(--space-1);
-  font-size: var(--font-size-title-lg);
   line-height: 1.35;
   text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-medium);
+  animation: hero-copy-enter var(--duration-base) var(--ease-standard);
+
+  @include text-size(title-lg);
+}
+
+.hero-banner__content span {
+  font-weight: 700;
+
+  @include text-size(caption);
 }
 
 .hero-banner__pagination {
   position: absolute;
   bottom: var(--space-4);
-  left: 50%;
-  display: flex;
-  gap: var(--space-2);
-  transform: translateX(-50%);
+  right: var(--space-4);
+  z-index: 3;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: rgb(var(--color-black-rgb) / 0.54);
+  color: var(--color-text-inverse);
+  font-weight: 800;
+  line-height: 1;
+
+  @include text-size(caption);
 }
 
-.hero-banner__pagination span {
-  width: var(--space-7);
-  height: 3px;
-  border-radius: var(--radius-pill);
-  background: var(--color-white-hard);
+@keyframes hero-poster-enter {
+  from {
+    opacity: 0.84;
+    transform: translateY(var(--space-2));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--space-3)));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

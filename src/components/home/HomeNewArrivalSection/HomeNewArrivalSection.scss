@@ -23,6 +23,7 @@
   bottom: var(--space-3);
   left: var(--space-3);
   color: var(--color-text-inverse);
-  font-size: var(--font-size-title);
   text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-hard);
+
+  @include text-size(title);
 }

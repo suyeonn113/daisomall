@@ -10,7 +10,8 @@
 
 .page-placeholder h1 {
   margin-bottom: var(--space-3);
-  font-size: var(--font-size-title-lg);
+
+  @include text-size(title-lg);
 }
 
 .page-placeholder p {

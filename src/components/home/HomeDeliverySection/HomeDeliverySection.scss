@@ -7,11 +7,12 @@
 .delivery-service-card {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
   min-height: var(--delivery-card-min-height);
-  padding: var(--space-3);
   background: var(--color-service-delivery);
   color: var(--color-text-inverse);
+
+  @include responsive-space(gap, var(--space-3), var(--space-4));
+  @include responsive-space(padding, var(--space-3), var(--space-4));
 }
 
 .delivery-service-card--pickup {
@@ -26,17 +27,18 @@
   background: var(--color-service-bulk);
 }
 
-.delivery-service-card img {
+.delivery-service-card__icon {
   width: var(--app-icon-size);
   height: var(--app-icon-size);
-  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .delivery-service-card strong {
-  font-size: var(--font-size-body);
+  @include text-size(body);
 }
 
 .delivery-service-card p {
   margin-top: var(--radius-xs);
-  font-size: var(--font-size-micro);
+
+  @include text-size(micro);
 }

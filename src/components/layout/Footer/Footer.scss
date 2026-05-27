@@ -2,8 +2,13 @@
 
 .site-footer {
   @include mobile-shell;
+  @include responsive-space(
+    padding,
+    var(--space-8) var(--space-4) calc(var(--bottom-tab-height) + var(--space-6)),
+    var(--space-10) var(--space-5) calc(var(--bottom-tab-height) + var(--space-8)),
+    var(--space-12) var(--space-6) calc(var(--bottom-tab-height) + var(--space-10))
+  );
 
-  padding: var(--space-8) var(--space-4) calc(var(--bottom-tab-height) + var(--space-6));
   background: var(--color-dark);
   color: var(--color-border-strong);
   text-align: center;
@@ -14,7 +19,8 @@
 
   gap: var(--space-3);
   margin-bottom: var(--space-6);
-  font-size: var(--font-size-caption);
+
+  @include text-size(caption);
 }
 
 .site-footer__app-icon {
@@ -26,19 +32,22 @@
 
 .site-footer__columns {
   @include grid-columns(2, 4);
+  @include responsive-space(gap, var(--space-4), var(--space-5));
 
-  gap: var(--space-4);
   margin-bottom: var(--space-8);
-  font-size: var(--font-size-caption);
+
+  @include text-size(caption);
 }
 
 .site-footer__columns h2 {
   margin-bottom: var(--space-2);
-  font-size: var(--font-size-body);
   color: var(--color-text-inverse);
+
+  @include text-size(body);
 }
 
 .site-footer__copy {
   color: var(--color-text-tertiary);
-  font-size: var(--font-size-micro);
+
+  @include text-size(micro);
 }

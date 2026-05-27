@@ -10,7 +10,8 @@
   position: absolute;
   top: var(--product-rank-offset);
   left: var(--product-rank-indent);
-  font-size: var(--font-size-display);
+
+  @include text-size(display);
 }
 
 .product-card__image-wrap {
@@ -47,13 +48,14 @@
 
 .product-card__info {
   display: grid;
-  gap: get-radius(xs);
+  gap: get-space(1);
   padding-top: var(--space-2);
-  font-size: var(--font-size-caption);
+
+  @include text-size(caption);
 }
 
 .product-card__info strong {
-  font-size: var(--font-size-body);
+  @include text-size(body);
 }
 
 .product-card__info p {
@@ -62,5 +64,17 @@
 }
 
 .product-card__info span {
-  font-size: var(--font-size-micro);
+  @include text-size(micro);
+}
+
+.product-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.product-card__rating svg {
+  flex-shrink: 0;
 }

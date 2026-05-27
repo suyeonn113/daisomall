@@ -21,5 +21,6 @@
   align-content: center;
   gap: get-radius(xs);
   color: var(--color-text);
-  font-size: var(--font-size-micro);
+
+  @include text-size(micro);
 }

@@ -1,12 +1,14 @@
 import { formatPrice } from '../../../utils/formatPrice'
+import StarIcon from '../../icons/StarIcon'
 
 function ProductCardInfo({ product }) {
   return (
     <div className="product-card__info">
       <strong>{formatPrice(product.price)}</strong>
       <p>{product.name}</p>
-      <span>
-        ★ {product.rating} ({product.reviewCount.toLocaleString()})
+      <span className="product-card__rating">
+        <StarIcon size={10} />
+        {product.rating} ({product.reviewCount.toLocaleString()})
       </span>
     </div>
   )

@@ -22,9 +22,25 @@
   --color-black-hard: rgb(var(--color-black-rgb) / 0.86);
 
   /* Brand */
+  --color-daiso-red: #d70011;
+  --color-daiso-white: #ffffff;
+  --color-daiso-dark-gray: #96969a;
   --color-brand-red: #d70018;
   --color-brand-red-dark: #b80014;
   --color-brand-blue: #0054a6;
+  --color-nav-beauty: #d83a7c;
+  --color-nav-beauty-health: #2f83ff;
+  --color-nav-beauty-muted: #9e7a89;
+  --color-nav-beauty-health-muted: #7588a5;
+  --color-nav-new: #f2b600;
+  --color-nav-new-muted: #a89452;
+
+  /* Daiso service icon */
+  --color-daiso-service-delivery-icon: #28323c;
+  --color-daiso-service-pickup-icon: #d70011;
+  --color-daiso-service-today-icon: #7b3ff2;
+  --color-daiso-service-bulk-icon-primary: #1e7afc;
+  --color-daiso-service-bulk-icon-secondary: #8ebcfd;
 
   /* Text */
   --color-text-primary: #222222;
@@ -32,11 +48,14 @@
   --color-text-tertiary: #777777;
   --color-text-muted: #999999;
   --color-text-inverse: #ffffff;
+  --color-text-inverse-rgb: var(--color-white-rgb);
 
   /* Background */
   --color-bg-page: #f3f3f3;
   --color-bg-main: #ffffff;
+  --color-bg-main-rgb: var(--color-white-rgb);
   --color-bg-sub: #f7f7f7;
+  --color-bg-icon-fill: #f6f8fa;
   --color-bg-chip: #f2f2f2;
   --color-bg-dark: #303030;
   --color-bg-backdrop: rgb(var(--color-black-rgb) / 0.35);
@@ -80,14 +99,6 @@
     'Segoe UI',
     sans-serif;
 
-  --font-size-base: 14px;
-  --font-size-display: 26px;
-  --font-size-title-lg: 20px;
-  --font-size-title: 18px;
-  --font-size-body: 14px;
-  --font-size-caption: 12px;
-  --font-size-micro: 11px;
-
   --line-height-base: 1.45;
   --line-height-tight: 1.2;
   --line-height-comfy: 1.6;
@@ -102,8 +113,11 @@
 
   --header-height: 88px;
   --header-bar-height: 42px;
-  --header-nav-height: 38px;
+  --header-nav-height: 36px;
   --bottom-tab-height: 64px;
+  --floating-action-bottom: calc(var(--bottom-tab-height) + var(--space-4));
+  --floating-action-right: var(--space-4);
+  --floating-action-size: 42px;
   --drawer-width: min(100vw, var(--layout-max-width));
 
   /* =========================
@@ -127,12 +141,13 @@
      ICON / COMPONENT
   ========================= */
 
+  --icon-size-xxs: 10px;
   --icon-size-xs: 14px;
   --icon-size-sm: 18px;
-  --icon-size-md: 22px;
+  --icon-size-md: 20px;
   --icon-size-lg: 28px;
 
-  --shortcut-size: 52px;
+  --shortcut-size: 56px;
   --category-icon-size: 40px;
   --product-card-min-width: 132px;
   --new-arrival-card-width: 78%;
@@ -165,6 +180,13 @@
 
   --shadow-sm: 0 2px 8px rgb(var(--color-black-rgb) / 0.06);
   --shadow-md: 0 8px 24px rgb(var(--color-black-rgb) / 0.1);
+  --shadow-icon-fill:
+    inset 0 1px 0 rgb(var(--color-bg-main-rgb) / 0.95),
+    inset 0 -1px 2px rgb(var(--color-black-rgb) / 0.06),
+    0 3px 10px rgb(var(--color-black-rgb) / 0.12);
+  --shadow-nav-glass:
+    inset 0 1px 0 rgb(var(--color-bg-main-rgb) / 0.74),
+    0 2px 8px rgb(var(--color-black-rgb) / 0.06);
 
   /* =========================
      LINE

@@ -1,7 +1,8 @@
 import BagIcon from '../../icons/BagIcon'
 import CategoryIcon from '../../icons/CategoryIcon'
-import HeartIcon from '../../icons/HeartIcon'
 import HomeIcon from '../../icons/HomeIcon'
+import ShortsIcon from '../../icons/ShortsIcon'
+import UserIcon from '../../icons/UserIcon'
 import { iconSize } from '../../../tokens/size'
 import BottomTabBarItem from './BottomTabBarItem'
 import './BottomTabBar.scss'
@@ -16,11 +17,11 @@ function BottomTabBar({ onCategoryClick }) {
         onClick={onCategoryClick}
       />
       <BottomTabBarItem
-        icon={<HeartIcon size={iconSize.md} />}
+        icon={<ShortsIcon size={iconSize.md} />}
         label="발견"
         to="/category/new"
       />
-      <BottomTabBarItem icon={<HomeIcon size={iconSize.md} />} label="마이" to="/search" />
+      <BottomTabBarItem icon={<UserIcon size={iconSize.md} />} label="마이" to="/search" />
       <BottomTabBarItem
         icon={<BagIcon size={iconSize.md} />}
         label="장바구니"

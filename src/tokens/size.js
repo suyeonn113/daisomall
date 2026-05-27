@@ -1,8 +1,9 @@
 // Mirrors --icon-size-* and layout custom properties in styles/foundation/_tokens.scss.
 export const iconSize = {
+  xxs: 10,
   xs: 14,
   sm: 18,
-  md: 22,
+  md: 20,
   lg: 28,
 };
 
