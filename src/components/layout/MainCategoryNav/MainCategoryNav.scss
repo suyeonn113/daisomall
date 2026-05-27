@@ -96,5 +96,8 @@
   gap: var(--space-1);
   white-space: nowrap;
   font-size: get-font-size(body);
+  @include respond-up(tablet) {
+    font-size: get-font-size(body-lg);
+  }
   line-height: 1;
 }

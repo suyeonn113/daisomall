@@ -60,6 +60,12 @@
   --color-bg-dark: #303030;
   --color-bg-backdrop: rgb(var(--color-black-rgb) / 0.35);
   --color-bg-header: rgb(80 76 66 / 0.78);
+  --gradient-image-readable:
+    linear-gradient(
+      180deg,
+      rgb(var(--color-black-rgb) / 0) 38%,
+      rgb(var(--color-black-rgb) / 0.48) 100%
+    );
 
   /* Border */
   --color-border-primary: #e5e5e5;
@@ -148,7 +154,7 @@
   --icon-size-lg: 28px;
 
   --shortcut-size: 56px;
-  --category-icon-size: 40px;
+  --category-icon-size: 32px;
   --product-card-min-width: 132px;
   --new-arrival-card-width: 78%;
   --hero-height: 280px;

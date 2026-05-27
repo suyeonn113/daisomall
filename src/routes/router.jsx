@@ -3,7 +3,6 @@ import MainLayout from '../layouts/MainLayout'
 import HomePage from '../pages/HomePage'
 import ProductDetailPage from '../pages/ProductDetailPage'
 import CategoryPage from '../pages/CategoryPage'
-import SearchPage from '../pages/SearchPage'
 import PromotionPage from '../pages/PromotionPage'
 import StoreReadyPage from '../pages/StoreReadyPage'
 import NotFoundPage from '../pages/NotFoundPage'
@@ -28,7 +27,7 @@ export const router = createBrowserRouter([
       },
       {
         path: PATHS.search,
-        element: <SearchPage />,
+        element: <StoreReadyPage />,
       },
       {
         path: 'store',

@@ -7,7 +7,26 @@ function HeroBannerSlider({ banners }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const touchStartX = useRef(null)
   const hasMultipleBanners = banners.length > 1
-  const getBannerAtOffset = (offset) => banners[(activeIndex + offset) % banners.length]
+  const getBannerAtOffset = (offset) => {
+    const nextIndex = (activeIndex + offset + banners.length) % banners.length
+
+    return banners[nextIndex]
+  }
+  const getPreviewBanners = () => {
+    const offsets = []
+
+    for (let index = 1; index < banners.length; index += 1) {
+      offsets.push(-index, index)
+    }
+
+    return offsets
+      .map((offset) => getBannerAtOffset(offset))
+      .filter(
+        (banner, index, previewBanners) =>
+          banner.id !== getBannerAtOffset(0).id &&
+          previewBanners.findIndex((previewBanner) => previewBanner.id === banner.id) === index,
+      )
+  }
 
   const goToPreviousBanner = () => {
     setActiveIndex((currentIndex) =>
@@ -63,20 +82,15 @@ function HeroBannerSlider({ banners }) {
       }}
     >
       <div className="hero-banner__stage">
-        {hasMultipleBanners && (
-          <>
-            <img
-              src={getBannerAtOffset(1).image}
-              alt=""
-              className="hero-banner__preview hero-banner__preview--primary"
-            />
-            <img
-              src={getBannerAtOffset(2).image}
-              alt=""
-              className="hero-banner__preview hero-banner__preview--secondary"
-            />
-          </>
-        )}
+        {hasMultipleBanners &&
+          getPreviewBanners().map((banner, index) => (
+            <div
+              key={banner.id}
+              className={`hero-banner__preview`}
+            >
+              <img src={banner.image} alt="" />
+            </div>
+          ))}
         <div className="hero-banner__poster" key={getBannerAtOffset(0).id}>
           <img src={getBannerAtOffset(0).image} alt="" className="hero-banner__image" />
           <div className="hero-banner__content">
@@ -89,7 +103,12 @@ function HeroBannerSlider({ banners }) {
       </div>
       {hasMultipleBanners && (
         <div className="hero-banner__pagination" aria-hidden="true">
-          {activeIndex + 1} / {banners.length}
+          {banners.map((banner, index) => (
+            <span
+              key={banner.id}
+              className={index === activeIndex ? 'is-active' : undefined}
+            />
+          ))}
         </div>
       )}
     </article>

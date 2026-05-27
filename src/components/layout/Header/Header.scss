@@ -5,14 +5,13 @@
   position: sticky;
   top: 0;
   z-index: get-z(sticky);
-  overflow: hidden;
   color: var(--color-text-primary);
 
   @include mobile-shell;
 }
 
 .site-header__content {
-  background: rgb(var(--color-bg-main-rgb) / 0.94);
+  background: rgb(var(--color-bg-main-rgb) / 1.0);
   transition: transform var(--duration-base) var(--ease-standard);
 }
 
@@ -28,7 +27,6 @@
   justify-content: flex-start;
   @include responsive-space(height, 42px, 48px, 52px);
 
-  overflow: hidden;
 }
 
 .site-header.is-bar-hidden .site-header__bar {

@@ -20,6 +20,8 @@
 }
 
 .promotion-banner-card {
+  @include image-readable-overlay;
+
   position: relative;
   overflow: hidden;
   min-height: var(--promotion-card-height);
@@ -37,6 +39,7 @@
   right: var(--space-4);
   bottom: var(--space-4);
   left: var(--space-4);
+  z-index: 1;
   color: var(--color-text-inverse);
 
   @include text-size(title);

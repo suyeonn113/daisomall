@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import CategoryIcon from '../../icons/CategoryIcon'
 import NotificationIcon from '../../icons/NotificationIcon'
 import SearchIcon from '../../icons/SearchIcon'
 import { iconSize } from '../../../tokens/size'
@@ -8,10 +7,9 @@ import HeaderLogo from './HeaderLogo'
 import HeaderStoreButton from './HeaderStoreButton'
 import HeaderSearchButton from './HeaderSearchButton'
 import HeaderNotificationButton from './HeaderNotificationButton'
-import HeaderMenuButton from './HeaderMenuButton'
 import './Header.scss'
 
-function Header({ onMenuClick }) {
+function Header() {
   const [isBarHidden, setIsBarHidden] = useState(false)
   const lastScrollYRef = useRef(0)
 

@@ -132,6 +132,16 @@
   object-fit: cover;
 }
 
+@mixin image-readable-overlay {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-image-readable);
+    pointer-events: none;
+  }
+}
+
 /* =========================
    TYPOGRAPHY
 ========================= */
