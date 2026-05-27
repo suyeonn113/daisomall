@@ -18,12 +18,13 @@ function IconBase({
       width={size}
       height={size}
       viewBox={viewBox}
-      fill="none"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       stroke="currentColor"
       strokeWidth="1.9"
       strokeLinecap="square"
       strokeLinejoin="round"
+      color="currentColor"
       {...accessibilityProps}
       {...props}
     >

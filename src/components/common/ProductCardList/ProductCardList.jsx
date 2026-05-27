@@ -8,7 +8,7 @@ function ProductCardList({ products, ranked = false }) {
         <ProductCard
           key={product.id}
           product={product}
-          rank={ranked ? index + 1 : undefined}
+          rank={ranked ? product.rank ?? index + 1 : undefined}
         />
       ))}
     </div>

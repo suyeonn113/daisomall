@@ -10,20 +10,31 @@
 
 .feature-shortcut-button {
   display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  aspect-ratio: 1 / 1;
   justify-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2) var(--space-2);
+  background:
+    linear-gradient(
+      180deg,
+      rgb(var(--color-white-rgb) / 0.96) 0%,
+      var(--color-bg-icon-fill) 100%
+    );
 
   @include text-size(caption);
 }
 
 .feature-shortcut-button img {
-  width: var(--shortcut-size);
-  height: var(--shortcut-size);
-  padding: var(--space-1);
-  border-radius: var(--radius-circle);
+  align-self: center;
+  width: min(76%, calc(var(--shortcut-size) + var(--space-2)));
+  height: auto;
   object-fit: contain;
-  border: var(--line-thin) solid rgb(var(--color-bg-main-rgb) / 0.9);
-  background: var(--color-bg-icon-fill);
-  box-shadow: var(--shadow-icon-fill);
-  backdrop-filter: blur(8px);
+}
+
+.feature-shortcut-button span {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  text-align: center;
 }

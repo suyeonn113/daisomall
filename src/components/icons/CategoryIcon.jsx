@@ -2,7 +2,7 @@ import IconBase from './IconBase'
 
 function CategoryIcon(props) {
   return (
-    <IconBase viewBox="0 0 26 26" {...props}>
+    <IconBase viewBox="0 0 26 26" fill="none" {...props}>
       <rect
         x="0.75"
         y="1.92346"

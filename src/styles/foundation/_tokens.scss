@@ -42,6 +42,12 @@
   --color-daiso-service-bulk-icon-primary: #1e7afc;
   --color-daiso-service-bulk-icon-secondary: #8ebcfd;
 
+  /* Service */
+  --color-service-delivery: #29313B;
+  --color-service-pickup: #D60211;
+  --color-service-today: #6810E9;
+  --color-service-bulk: #1575FC;
+
   /* Text */
   --color-text-primary: #222222;
   --color-text-secondary: #555555;
@@ -71,12 +77,6 @@
   --color-border-primary: #e5e5e5;
   --color-border-secondary: #dddddd;
   --color-border-strong: #cccccc;
-
-  /* Service */
-  --color-service-delivery: #2f3f55;
-  --color-service-pickup: #e60021;
-  --color-service-today: #6e26ff;
-  --color-service-bulk: #2f83ff;
 
   /* State */
   --color-focus-ring: var(--color-brand-blue);
@@ -154,14 +154,14 @@
   --icon-size-lg: 28px;
 
   --shortcut-size: 56px;
-  --category-icon-size: 32px;
-  --product-card-min-width: 132px;
+  --category-icon-size: clamp(32px, 6vw, 44px);
+  --product-card-min-width: clamp(150px, 38vw, 192px);
+  --ranking-image-size: clamp(60px, 16vw, 110px);
+  --ranking-number-width: clamp(20px, 2vw, 36px);
   --new-arrival-card-width: 78%;
-  --hero-height: 280px;
-  --hero-copy-offset-top: 108px;
   --new-arrival-card-height: 240px;
   --promotion-card-height: 180px;
-  --delivery-card-min-height: 68px;
+  --delivery-card-min-height: clamp(84px, 8vw, 120px);
   --drawer-sidebar-width: 112px;
   --drawer-content-offset: 104px;
   --product-rank-offset: 52px;

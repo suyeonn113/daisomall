@@ -3,7 +3,7 @@ function DeliveryServiceCard({ service }) {
 
   return (
     <a className={`delivery-service-card delivery-service-card--${service.id}`} href="/">
-      <ServiceIcon className="delivery-service-card__icon" />
+      <ServiceIcon style={{ color: 'white' }} className="delivery-service-card__icon" />
       <div>
         <strong>{service.title}</strong>
         <p>{service.description}</p>

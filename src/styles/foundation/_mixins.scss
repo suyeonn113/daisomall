@@ -23,6 +23,12 @@
   }
 }
 
+@mixin respond-between($min, $max) {
+  @media (min-width: map.get($breakpoints, $min)) and (max-width: map.get($breakpoints, $max)) {
+    @content;
+  }
+}
+
 @mixin mobile-shell {
   width: 100%;
   margin-inline: auto;
@@ -91,11 +97,15 @@
   gap: get-space($gap);
 }
 
-@mixin scroll-row($column-width, $gap: 3) {
+@mixin scroll-row($column-width, $gap: null) {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: $column-width;
-  gap: get-space($gap);
+  
+  @if $gap != null {
+    gap: get-space($gap);
+  }
+  
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scrollbar-width: none;

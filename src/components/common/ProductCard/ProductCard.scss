@@ -11,12 +11,12 @@
   top: var(--product-rank-offset);
   left: var(--product-rank-indent);
 
-  @include text-size(display);
+  @include text-size(title-lg);
 }
 
 .product-card__image-wrap {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: var(--color-bg-sub);
 }
@@ -40,10 +40,8 @@
   position: absolute;
   right: var(--space-2);
   bottom: var(--space-2);
+  color: var(--color-text-inverse);
   @include icon-button(var(--icon-size-lg));
-
-  border-radius: var(--radius-circle);
-  background: var(--color-white-hard);
 }
 
 .product-card__info {
@@ -59,7 +57,7 @@
 }
 
 .product-card__info p {
-  color: var(--color-muted);
+  color: var(--color-text-primary);
   line-height: 1.3;
 }
 
@@ -77,4 +75,60 @@
 
 .product-card__rating svg {
   flex-shrink: 0;
+  fill: currentColor;
+  stroke: none;
+}
+
+.product-card__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.product-card__badges li {
+  display: inline-flex;
+}
+
+.product-card-list.is-ranked .product-card {
+  display: grid;
+  grid-template-columns: var(--ranking-number-width) var(--ranking-image-size) minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(var(--space-2), 2vw, var(--space-5));
+  min-width: 0;
+}
+
+.product-card-list.is-ranked .product-card__rank {
+  position: static;
+  width: var(--ranking-number-width);
+  color: var(--color-text-primary);
+  line-height: 1;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.product-card-list.is-ranked .product-card__image-wrap {
+  width: var(--ranking-image-size);
+}
+
+.product-card-list.is-ranked .product-card__wish,
+.product-card-list.is-ranked .product-card__label,
+.product-card-list.is-ranked .product-card__badges {
+  display: none;
+}
+
+.product-card-list.is-ranked .product-card__info {
+  min-width: 0;
+  @include responsive-space(padding-top, var(--space-2), var(--space-4));
+}
+
+.product-card-list.is-ranked .product-card__info strong {
+  @include text-size(title);
+}
+
+.product-card-list.is-ranked .product-card__info p {
+  @include text-size(body);
+}
+
+.product-card-list.is-ranked .product-card__info span {
+  @include text-size(caption);
 }

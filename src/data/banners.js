@@ -39,7 +39,7 @@ export const banners = [
     id: 'gatsby-styling',
     title: '갸스비로 완성하는\n헤어 스타일링',
     subtitle: '데일리 스타일링 루틴',
-    image: '/images/home-hero/banner07.jpg',
+    image: '/images/home-hero/banner01.jpg',
   },
   {
     id: 'temporary-tumbler',

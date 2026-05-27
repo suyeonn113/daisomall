@@ -83,12 +83,17 @@ function HeroBannerSlider({ banners }) {
     >
       <div className="hero-banner__stage">
         {hasMultipleBanners &&
-          getPreviewBanners().map((banner, index) => (
+          getPreviewBanners().map((banner) => (
             <div
               key={banner.id}
               className={`hero-banner__preview`}
             >
               <img src={banner.image} alt="" />
+              <div className="hero-banner__preview-title">
+                {banner.title.split('\n').map((line) => (
+                  <strong key={line}>{line}</strong>
+                ))}
+              </div>
             </div>
           ))}
         <div className="hero-banner__poster" key={getBannerAtOffset(0).id}>

@@ -1,5 +1,6 @@
 import { formatPrice } from '../../../utils/formatPrice'
 import StarIcon from '../../icons/StarIcon'
+import ProductCardDeliveryBadges from './ProductCardDeliveryBadges'
 
 function ProductCardInfo({ product }) {
   return (
@@ -10,6 +11,7 @@ function ProductCardInfo({ product }) {
         <StarIcon size={10} />
         {product.rating} ({product.reviewCount.toLocaleString()})
       </span>
+      <ProductCardDeliveryBadges badges={product.badges} />
     </div>
   )
 }

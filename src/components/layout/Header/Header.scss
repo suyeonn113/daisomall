@@ -91,13 +91,40 @@
 
 .site-header__actions {
   display: flex;
-  @include responsive-space(gap, var(--space-2), var(--space-3));
+  align-items: center;
+  gap: var(--space-2);
 
   margin-left: auto;
 }
 
 .site-header__icon-button {
+  flex: 0 0 auto;
+
   @include icon-button(var(--icon-size-lg));
+}
+
+.site-header__notification {
+  display: inline-flex;
+}
+
+.site-header__desktop-action {
+  display: none;
+}
+
+@include respond-up(tablet) {
+  .site-header__actions .site-header__icon-button {
+    width: var(--icon-size-lg);
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .site-header__notification {
+    display: none;
+  }
+
+  .site-header__desktop-action {
+    display: grid;
+  }
 }
 
 .site-header__store-tip {

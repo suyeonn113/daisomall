@@ -2,29 +2,54 @@
 
 .delivery-service-grid {
   @include grid-columns(2, 2);
+  @include respond-up(tablet) {
+    @include grid-columns(4, 3);
+  }
 }
 
 .delivery-service-card {
   display: flex;
   align-items: center;
   min-height: var(--delivery-card-min-height);
-  background: var(--color-service-delivery);
+  @include respond-between(tablet, laptop) {
+    min-height: auto;
+    aspect-ratio: 3 / 4;
+  }
+  background-color: var(--color-service-delivery);
+  background-image: url('../../../../public/images/delivery/delivery.png');
   color: var(--color-text-inverse);
 
   @include responsive-space(gap, var(--space-3), var(--space-4));
   @include responsive-space(padding, var(--space-3), var(--space-4));
 }
 
+.delivery-service-card,
+.delivery-service-card--pickup,
+.delivery-service-card--today,
+.delivery-service-card--bulk {
+  background-size: 30% auto;
+  background-position: right 0px bottom 10%;
+  background-repeat: no-repeat;
+
+  @include respond-between(tablet, laptop) {
+    background-size: 100% auto;
+    background-position: right 0px bottom 0px;
+  }
+}
+
 .delivery-service-card--pickup {
-  background: var(--color-service-pickup);
+  background-color: var(--color-service-pickup);
+  background-image: url('../../../../public/images/delivery/pickup.png');
 }
 
 .delivery-service-card--today {
-  background: var(--color-service-today);
+  background-color: var(--color-service-today);
+  background-image: url('../../../../public/images/delivery/today.png');
 }
 
 .delivery-service-card--bulk {
-  background: var(--color-service-bulk);
+  background-color: var(--color-service-bulk);
+  background-image: url('../../../../public/images/delivery/bulk.png');
 }
 
 .delivery-service-card__icon {
@@ -34,11 +59,11 @@
 }
 
 .delivery-service-card strong {
-  @include text-size(body);
+  @include text-size(body-lg);
 }
 
 .delivery-service-card p {
   margin-top: var(--radius-xs);
 
-  @include text-size(micro);
+  @include text-size(caption);
 }

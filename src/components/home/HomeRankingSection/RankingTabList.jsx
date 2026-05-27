@@ -1,11 +1,15 @@
 import BadgeButton from '../../common/BadgeButton/BadgeButton'
 
-function RankingTabList({ tabs }) {
+function RankingTabList({ activeTabId, tabs, onTabChange }) {
   return (
     <div className="ranking-tab-list">
-      {tabs.map((tab, index) => (
-        <BadgeButton key={tab} isActive={index === 0}>
-          {tab}
+      {tabs.map((tab) => (
+        <BadgeButton
+          key={tab.id}
+          isActive={tab.id === activeTabId}
+          onClick={() => onTabChange(tab.id)}
+        >
+          {tab.label}
         </BadgeButton>
       ))}
     </div>

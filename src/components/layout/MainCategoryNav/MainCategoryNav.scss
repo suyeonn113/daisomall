@@ -49,6 +49,30 @@
   background: currentColor;
 }
 
+.main-category-nav__link--category-action {
+  display: none;
+}
+
+@include respond-up(tablet) {
+  .main-category-nav__link--category-action {
+    display: inline-flex;
+  }
+
+  .main-category-nav__link--category-action .main-category-nav__item {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    white-space: nowrap;
+  }
+
+  .main-category-nav__link--home {
+    display: none;
+  }
+}
+
 .main-category-nav__link--beauty {
   color: var(--color-nav-beauty-muted);
   background: linear-gradient(

@@ -13,6 +13,10 @@
 
   @include mobile-shell;
   @include grid-columns(5, 0);
+
+  @include respond-up(tablet) {
+    display: none;
+  }
 }
 
 .bottom-tab-bar__item {
