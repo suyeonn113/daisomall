@@ -1,10 +1,27 @@
+import {
+  GeometricShapesIcon,
+  ShoppingBagIcon,
+  TrendArrowIcon,
+} from '../../icons'
 import PromotionTabButton from './PromotionTabButton'
 
-function PromotionTabList({ tabs }) {
+const promotionTabIcons = {
+  category: GeometricShapesIcon,
+  popular: TrendArrowIcon,
+  purchase: ShoppingBagIcon,
+}
+
+function PromotionTabList({ tabs, activeTabId, onChangeTab }) {
   return (
     <div className="promotion-tab-list">
-      {tabs.map((tab, index) => (
-        <PromotionTabButton key={tab} label={tab} isActive={index === 0} />
+      {tabs.map((tab) => (
+        <PromotionTabButton
+          key={tab.id}
+          label={tab.label}
+          icon={promotionTabIcons[tab.id]}
+          isActive={tab.id === activeTabId}
+          onClick={() => onChangeTab(tab.id)}
+        />
       ))}
     </div>
   )

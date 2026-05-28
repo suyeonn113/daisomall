@@ -1,14 +1,14 @@
-function CategoryDrawerSidebar({ activeCategory, categories, onChange }) {
+function CategoryDrawerSidebar({ activeCategoryIndex, categories, onChange }) {
   return (
     <aside className="category-drawer__sidebar">
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <button
-          key={category}
+          key={`${category.id}-${index}`}
           type="button"
-          className={category === activeCategory ? 'is-active' : ''}
-          onClick={() => onChange(category)}
+          className={index === activeCategoryIndex ? 'is-active' : ''}
+          onClick={() => onChange(index)}
         >
-          {category}
+          {category.label}
         </button>
       ))}
     </aside>

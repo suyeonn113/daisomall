@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
 
 function Logo({ className = '', ariaLabel = '다이소몰 홈으로 이동' }) {
+  const handleClick = () => {
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 0)
+  }
+
   return (
-    <Link className={`logo ${className}`} to="/" aria-label={ariaLabel}>
+    <Link className={`logo ${className}`} to="/" aria-label={ariaLabel} onClick={handleClick}
+          style={{ outlineOffset: '6px' }}>
       <svg
         className="logo__symbol"
         viewBox="-0.25 -0.25 16.5556 16.258"

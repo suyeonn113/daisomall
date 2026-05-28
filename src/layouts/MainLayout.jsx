@@ -9,10 +9,13 @@ import './MainLayout.scss'
 
 function MainLayout() {
   const [isCategoryDrawerOpen, setIsCategoryDrawerOpen] = useState(false)
+  const handleCategoryDrawerToggle = () => {
+    setIsCategoryDrawerOpen((isOpen) => !isOpen)
+  }
 
   return (
     <div className="app-shell">
-      <Header onMenuClick={() => setIsCategoryDrawerOpen(true)} />
+      <Header onMenuClick={handleCategoryDrawerToggle} />
       <CategoryDrawer
         isOpen={isCategoryDrawerOpen}
         onClose={() => setIsCategoryDrawerOpen(false)}
@@ -22,7 +25,7 @@ function MainLayout() {
       </main>
       <Footer />
       <FloatingActionButtons />
-      <BottomTabBar onCategoryClick={() => setIsCategoryDrawerOpen(true)} />
+      <BottomTabBar onCategoryClick={handleCategoryDrawerToggle} />
     </div>
   )
 }

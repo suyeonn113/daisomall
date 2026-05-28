@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { products } from '../../../data/products'
 import { formatPrice } from '../../../utils/formatPrice'
+import { BagIcon } from '../../icons'
 
 function NewArrivalVideoCard({ content }) {
   const [isProductsOpen, setIsProductsOpen] = useState(false)
@@ -21,7 +22,7 @@ function NewArrivalVideoCard({ content }) {
             aria-expanded={isProductsOpen}
             onClick={() => setIsProductsOpen((current) => !current)}
           >
-            {isProductsOpen ? '상품 닫기' : '상품 보기'}
+            <BagIcon></BagIcon>
           </button>
         ) : null}
         <div className="new-arrival-card__copy">
@@ -30,19 +31,21 @@ function NewArrivalVideoCard({ content }) {
         </div>
         {isProductsOpen ? (
           <div className="new-arrival-card__products" aria-label="관련상품">
-            {relatedProducts.map((product) => (
-              <Link
-                key={product.id}
-                to={`/products/${product.id}`}
-                className="new-arrival-card__product"
-              >
-                <img src={product.image} alt="" />
-                <span>
-                  <strong>{formatPrice(product.price)}</strong>
-                  <em>{product.name}</em>
-                </span>
-              </Link>
-            ))}
+            <div className="new-arrival-card__product-list">
+              {relatedProducts.map((product) => (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  className="new-arrival-card__product"
+                >
+                  <img src={product.image} alt="" />
+                  <span>
+                    <strong>{formatPrice(product.price)}</strong>
+                    <em>{product.name}</em>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         ) : null}
       </div>

@@ -2,7 +2,7 @@
 @use '../../../styles/foundation/mixins' as *;
 
 .home-category-menu-section {
-  margin-top: calc(var(--space-4) * -1);
+  margin-top: calc(var(--space-8) * -1);
   padding-top: 0;
 
   @include respond-up(laptop) {
@@ -19,8 +19,8 @@
 
   margin-inline: calc(var(--space-4) * -1);
   padding-inline: var(--space-4);
-
-  overflow-y: hidden;
+  padding-block: var(--space-3);
+  overflow: hidden;
 
   @include respond-up(tablet) {
     display: grid;
@@ -41,7 +41,6 @@
 
 .category-menu-button {
   position: relative;
-  overflow: hidden;
   isolation: isolate;
 
   display: inline-flex;
@@ -60,6 +59,7 @@
     &:hover,
     &:focus-visible {
       transform: translateY(-8px);
+      z-index: get-z(base) + 1;
     }
   }
 

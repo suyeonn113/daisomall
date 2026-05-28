@@ -1,16 +1,26 @@
-function CategoryDrawerMenu({ activeMenu, menuItems, onChange }) {
+function CategoryDrawerMenu({ activeMenu, menuItems, quickMenus, onChange }) {
   return (
     <div className="category-drawer__menu">
-      {menuItems.map((item) => (
-        <button
-          key={item}
-          type="button"
-          className={item === activeMenu ? 'is-active' : ''}
-          onClick={() => onChange(item)}
-        >
-          {item}
-        </button>
-      ))}
+      <div className="category-drawer__menu-tabs">
+        {menuItems.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            className={item.id === activeMenu ? 'is-active' : ''}
+            onClick={() => onChange(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      <div className="category-drawer__quick-menu">
+        {quickMenus.map((item) => (
+          <a key={item.id} href={`/category/${item.id}`}>
+            <img src={item.image} alt="" />
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
     </div>
   )
 }

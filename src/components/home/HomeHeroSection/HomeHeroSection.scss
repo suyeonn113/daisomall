@@ -42,6 +42,7 @@
   top: 50%;
   width: min(65vw, 75%);
   aspect-ratio: 1 / 1;
+  cursor: pointer;
   transform: translateY(-50%);
 }
 
@@ -55,7 +56,7 @@
   right: var(--space-3);
   bottom: var(--space-3);
   left: var(--space-3);
-  z-index: 1;
+  z-index: get-z(base);
   display: none;
   gap: var(--space-1);
   line-height: var(--line-height-tight);
@@ -90,7 +91,7 @@
   position: absolute;
   bottom: var(--space-5);
   left: var(--space-4);
-  z-index: 1;
+  z-index: get-z(base);
   display: grid;
   gap: var(--space-1);
   line-height: 1.35;

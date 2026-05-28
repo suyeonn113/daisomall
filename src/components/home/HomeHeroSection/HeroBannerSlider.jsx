@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const AUTO_SLIDE_DELAY = 4000
 const SWIPE_THRESHOLD = 40
 const WHEEL_THRESHOLD = 30
+const TABLET_MEDIA_QUERY = '(min-width: 768px)'
 
 function HeroBannerSlider({ banners }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isTabletUp, setIsTabletUp] = useState(false)
   const touchStartX = useRef(null)
   const wheelDeltaX = useRef(0)
   const hasMultipleBanners = banners.length > 1
@@ -22,11 +25,15 @@ function HeroBannerSlider({ banners }) {
     }
 
     return offsets
-      .map((offset) => getBannerAtOffset(offset))
+      .map((offset) => ({
+        banner: getBannerAtOffset(offset),
+        bannerIndex: (activeIndex + offset + banners.length) % banners.length,
+      }))
       .filter(
-        (banner, index, previewBanners) =>
+        ({ banner }, index, previewBanners) =>
           banner.id !== getBannerAtOffset(0).id &&
-          previewBanners.findIndex((previewBanner) => previewBanner.id === banner.id) === index,
+          previewBanners.findIndex((previewBanner) => previewBanner.banner.id === banner.id) ===
+            index,
       )
   }
 
@@ -40,6 +47,26 @@ function HeroBannerSlider({ banners }) {
     setActiveIndex((currentIndex) =>
       currentIndex === banners.length - 1 ? 0 : currentIndex + 1,
     )
+  }
+
+  const getBannerPath = (banner) => banner.href || '#'
+
+  const handlePreviewClick = (event, banner, bannerIndex) => {
+    if (!isTabletUp) {
+      event.preventDefault()
+      setActiveIndex(bannerIndex)
+      return
+    }
+
+    if (!banner.href) {
+      event.preventDefault()
+    }
+  }
+
+  const handlePosterClick = (event, banner) => {
+    if (!banner.href) {
+      event.preventDefault()
+    }
   }
 
   const handlePointerDown = (event) => {
@@ -91,6 +118,20 @@ function HeroBannerSlider({ banners }) {
     }
   }, [hasMultipleBanners])
 
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(TABLET_MEDIA_QUERY)
+    const updateIsTabletUp = () => {
+      setIsTabletUp(mediaQueryList.matches)
+    }
+
+    updateIsTabletUp()
+    mediaQueryList.addEventListener('change', updateIsTabletUp)
+
+    return () => {
+      mediaQueryList.removeEventListener('change', updateIsTabletUp)
+    }
+  }, [])
+
   return (
     <article
       className="hero-banner"
@@ -103,10 +144,14 @@ function HeroBannerSlider({ banners }) {
     >
       <div className="hero-banner__stage">
         {hasMultipleBanners &&
-          getPreviewBanners().map((banner) => (
-            <div
+          getPreviewBanners().map(({ banner, bannerIndex }) => (
+            <Link
               key={banner.id}
+              to={getBannerPath(banner)}
               className={`hero-banner__preview`}
+              onClick={(event) => {
+                handlePreviewClick(event, banner, bannerIndex)
+              }}
             >
               <img src={banner.image} alt="" />
               <div className="hero-banner__preview-title">
@@ -114,9 +159,16 @@ function HeroBannerSlider({ banners }) {
                   <strong key={line}>{line}</strong>
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
-        <div className="hero-banner__poster" key={getBannerAtOffset(0).id}>
+        <Link
+          to={getBannerPath(getBannerAtOffset(0))}
+          className="hero-banner__poster"
+          key={getBannerAtOffset(0).id}
+          onClick={(event) => {
+            handlePosterClick(event, getBannerAtOffset(0))
+          }}
+        >
           <img src={getBannerAtOffset(0).image} alt="" className="hero-banner__image" />
           <div className="hero-banner__content">
             {getBannerAtOffset(0).title.split('\n').map((line) => (
@@ -124,7 +176,7 @@ function HeroBannerSlider({ banners }) {
             ))}
             <span>{getBannerAtOffset(0).subtitle}</span>
           </div>
-        </div>
+        </Link>
       </div>
       {hasMultipleBanners && (
         <div className="hero-banner__pagination" aria-hidden="true">

@@ -69,7 +69,7 @@
 
 .delivery-service-card__icon {
   position: relative;
-  z-index: 1;
+  z-index: get-z(base);
   width: var(--delivery-card-icon-size-mobile);
   height: var(--delivery-card-icon-size-mobile);
   flex-shrink: 0;
@@ -87,7 +87,7 @@
 
 .delivery-service-card__copy {
   position: relative;
-  z-index: 1;
+  z-index: get-z(base);
 }
 
 .delivery-service-card__eyebrow {

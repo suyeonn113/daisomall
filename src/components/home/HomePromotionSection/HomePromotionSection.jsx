@@ -1,19 +1,24 @@
+import { useState } from 'react'
+import { promotionGroups, promotionTabs } from '../../../data/promotions'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import { promotions } from '../../../data/promotions'
+import PromotionCardList from './PromotionCardList'
 import PromotionTabList from './PromotionTabList'
-import PromotionBannerCard from './PromotionBannerCard'
-import PromotionAccordionList from './PromotionAccordionList'
 import './HomePromotionSection.scss'
 
 function HomePromotionSection() {
-  const [mainPromotion, ...items] = promotions
+  const [activeTabId, setActiveTabId] = useState(promotionTabs[0].id)
+  const activePromotions = promotionGroups[activeTabId]
+  const cardVariant = activeTabId === 'category' ? 'horizontal' : 'vertical'
 
   return (
     <section className="home-section">
       <SectionHeader title="기획전" />
-      <PromotionTabList tabs={['카테고리', '인기급상승', '구매급상승']} />
-      <PromotionBannerCard promotion={mainPromotion} />
-      <PromotionAccordionList promotions={items} />
+      <PromotionTabList
+        tabs={promotionTabs}
+        activeTabId={activeTabId}
+        onChangeTab={setActiveTabId}
+      />
+      <PromotionCardList promotions={activePromotions} variant={cardVariant} />
     </section>
   )
 }

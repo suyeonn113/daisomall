@@ -22,7 +22,7 @@
   align-items: center;
   height: var(--header-nav-height);
   padding-inline: var(--space-2);
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
   font-weight: 500;
   white-space: nowrap;
 
@@ -61,20 +61,7 @@
 @include respond-up(tablet) {
   .main-category-nav__link--category-action {
     display: inline-flex;
-  }
-
-  .main-category-nav__link--category-action .main-category-nav__item {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    white-space: nowrap;
-  }
-
-  .main-category-nav__link--home {
-    display: none;
+    gap: var(--space-2);
   }
 }
 
@@ -96,6 +83,9 @@
     align-items: center;
     gap: var(--space-2);
     margin-left: auto;
+    .main-category-nav__item {
+      color: var(--color-text-primary);
+    }
   }
 
   .main-category-nav__link--delivery-service {

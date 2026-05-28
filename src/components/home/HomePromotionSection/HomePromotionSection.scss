@@ -9,14 +9,123 @@
 }
 
 .promotion-tab-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   color: var(--color-muted);
 
   @include text-size(caption);
 }
 
+.promotion-tab-button__icon {
+  flex: 0 0 auto;
+}
+
 .promotion-tab-button.is-active {
   color: var(--color-text);
   font-weight: 700;
+}
+
+.promotion-card-list {
+  display: grid;
+  @include responsive-space(gap, var(--space-2), var(--space-3));
+}
+
+.promotion-card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  overflow: hidden;
+  min-width: 0;
+  background: var(--color-bg-sub);
+  color: var(--color-text-inverse);
+}
+
+.promotion-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: get-z(base) + 1;
+  background: var(--gradient-image-readable);
+  pointer-events: none;
+}
+
+.promotion-card img {
+  @include image-cover;
+
+  position: absolute;
+  inset: 0;
+  z-index: get-z(base);
+  transition:
+    filter var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.promotion-card:not(.is-active) img {
+  filter: blur(2px) brightness(0.7);
+  transform: scale(1.04);
+}
+
+.promotion-card strong {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  left: var(--space-3);
+  z-index: 3;
+  text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-hard);
+
+  @include text-size(title);
+}
+
+.promotion-card-list.is-horizontal {
+  grid-template-rows: 4fr 1fr 1fr;
+  aspect-ratio: 11 / 10;
+  transition: grid-template-rows var(--duration-base) var(--ease-standard);
+}
+
+.promotion-card-list.is-horizontal.active-index-1 {
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+.promotion-card-list.is-horizontal.active-index-2 {
+  grid-template-rows: 1fr 1fr 4fr;
+}
+
+.promotion-card-list.is-horizontal .promotion-card {
+  min-height: 0;
+}
+
+.promotion-card-list.is-horizontal .promotion-card img {
+  height: 100%;
+}
+
+.promotion-card-list.is-vertical {
+  grid-template-columns: 2fr 1fr 1fr;
+  aspect-ratio: 11 / 10;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  transition: grid-template-columns var(--duration-base) var(--ease-standard);
+}
+
+.promotion-card-list.is-vertical.active-index-1 {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.promotion-card-list.is-vertical.active-index-2 {
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.promotion-card-list.is-vertical::-webkit-scrollbar {
+  display: none;
+}
+
+.promotion-card-list.is-vertical .promotion-card {
+  height: 100%;
+}
+
+.promotion-card-list.is-vertical .promotion-card img {
+  height: 100%;
 }
 
 .promotion-banner-card {
@@ -39,7 +148,7 @@
   right: var(--space-4);
   bottom: var(--space-4);
   left: var(--space-4);
-  z-index: 1;
+  z-index: get-z(base);
   color: var(--color-text-inverse);
 
   @include text-size(title);
