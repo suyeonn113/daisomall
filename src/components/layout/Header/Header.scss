@@ -16,7 +16,12 @@
 }
 
 .site-header.is-bar-hidden .site-header__content {
-  transform: translateY(calc(-1 * var(--header-bar-height)));
+  @include responsive-space(
+    transform,
+    translateY(calc(-1 * var(--header-bar-height))),
+    translateY(calc(-1 * var(--header-bar-height-tablet))),
+    translateY(calc(-1 * var(--header-bar-height-laptop)))
+  );
 }
 
 .site-header__bar {
@@ -25,7 +30,12 @@
   @include responsive-space(gap, var(--space-4), var(--space-5));
 
   justify-content: flex-start;
-  @include responsive-space(height, 42px, 48px, 52px);
+  @include responsive-space(
+    height,
+    var(--header-bar-height),
+    var(--header-bar-height-tablet),
+    var(--header-bar-height-laptop)
+  );
 
 }
 

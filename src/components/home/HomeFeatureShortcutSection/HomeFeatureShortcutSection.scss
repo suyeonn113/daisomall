@@ -1,34 +1,35 @@
 @use '../../../styles/foundation/mixins' as *;
 
 .home-feature-shortcut-section {
-  padding-top: var(--space-5);
+  padding-top: var(--space-3);
+
+  @include respond-up(laptop) {
+    display: none;
+  }
 }
 
 .feature-shortcut-list {
-  @include grid-columns(4, 3);
+  @include grid-columns(4, 2);
 }
 
 .feature-shortcut-button {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   justify-items: center;
   gap: var(--space-1);
-  padding: var(--space-3) var(--space-2) var(--space-2);
-  background:
-    linear-gradient(
-      180deg,
-      rgb(var(--color-white-rgb) / 0.96) 0%,
-      var(--color-bg-icon-fill) 100%
-    );
+  min-height: var(--shortcut-size);
+  padding: var(--space-2);
+  background: var(--color-bg-main);
+  box-shadow: 0 1px 4px rgb(var(--color-black-rgb) / 0.04);
 
   @include text-size(caption);
 }
 
 .feature-shortcut-button img {
-  align-self: center;
-  width: min(76%, calc(var(--shortcut-size) + var(--space-2)));
-  height: auto;
+  width: calc(var(--shortcut-size) - var(--space-1));
+  aspect-ratio: 1 / 1;
   object-fit: contain;
 }
 

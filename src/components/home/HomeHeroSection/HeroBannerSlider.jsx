@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 
 const AUTO_SLIDE_DELAY = 4000
 const SWIPE_THRESHOLD = 40
+const WHEEL_THRESHOLD = 30
 
 function HeroBannerSlider({ banners }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const touchStartX = useRef(null)
+  const wheelDeltaX = useRef(0)
   const hasMultipleBanners = banners.length > 1
   const getBannerAtOffset = (offset) => {
     const nextIndex = (activeIndex + offset + banners.length) % banners.length
@@ -62,6 +64,23 @@ function HeroBannerSlider({ banners }) {
     goToNextBanner()
   }
 
+  const handleWheel = (event) => {
+    if (!hasMultipleBanners || !event.shiftKey) return
+
+    event.preventDefault()
+    wheelDeltaX.current += event.deltaX || event.deltaY
+
+    if (Math.abs(wheelDeltaX.current) < WHEEL_THRESHOLD) return
+
+    if (wheelDeltaX.current > 0) {
+      goToNextBanner()
+    } else {
+      goToPreviousBanner()
+    }
+
+    wheelDeltaX.current = 0
+  }
+
   useEffect(() => {
     if (!hasMultipleBanners) return undefined
 
@@ -80,6 +99,7 @@ function HeroBannerSlider({ banners }) {
       onPointerCancel={() => {
         touchStartX.current = null
       }}
+      onWheel={handleWheel}
     >
       <div className="hero-banner__stage">
         {hasMultipleBanners &&

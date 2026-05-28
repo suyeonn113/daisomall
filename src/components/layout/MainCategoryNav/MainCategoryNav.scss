@@ -53,6 +53,11 @@
   display: none;
 }
 
+.main-category-nav__link--desktop-shortcut,
+.main-category-nav__delivery-links {
+  display: none;
+}
+
 @include respond-up(tablet) {
   .main-category-nav__link--category-action {
     display: inline-flex;
@@ -70,6 +75,31 @@
 
   .main-category-nav__link--home {
     display: none;
+  }
+}
+
+@include respond-up(laptop) {
+  .main-category-nav {
+    align-items: center;
+  }
+
+  .main-category-nav__link--desktop-shortcut,
+  .main-category-nav__delivery-links {
+    display: inline-flex;
+  }
+
+  .main-category-nav__link--delivery {
+    display: none;
+  }
+
+  .main-category-nav__delivery-links {
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
+  .main-category-nav__link--delivery-service {
+    gap: var(--space-1);
   }
 }
 
@@ -112,6 +142,18 @@
 
 .main-category-nav__link--new.is-active {
   color: var(--color-nav-new);
+}
+
+.main-category-nav__link--delivery-service-pickup svg {
+  color: var(--color-daiso-service-pickup-icon);
+}
+
+.main-category-nav__link--delivery-service-today svg {
+  color: var(--color-daiso-service-today-icon);
+}
+
+.main-category-nav__link--delivery-service-bulk svg {
+  color: var(--color-daiso-service-bulk-icon-primary);
 }
 
 .main-category-nav__item {

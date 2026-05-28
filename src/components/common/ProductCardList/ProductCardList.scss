@@ -12,7 +12,7 @@
 
 .product-card-list.is-ranked {
   grid-auto-flow: column;
-  grid-auto-columns: min(100%, clamp(240px, 75vw, 420px));
+  grid-auto-columns: var(--product-ranked-list-column-width);
   grid-template-rows: repeat(4, auto);
 
   @include responsive-space(column-gap, var(--space-6), var(--space-8));

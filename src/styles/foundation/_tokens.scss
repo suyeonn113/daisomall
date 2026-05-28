@@ -119,6 +119,8 @@
 
   --header-height: 88px;
   --header-bar-height: 42px;
+  --header-bar-height-tablet: 48px;
+  --header-bar-height-laptop: 52px;
   --header-nav-height: 36px;
   --bottom-tab-height: 64px;
   --floating-action-bottom: calc(var(--bottom-tab-height) + var(--space-4));
@@ -154,19 +156,37 @@
   --icon-size-lg: 28px;
 
   --shortcut-size: 56px;
+
   --category-icon-size: clamp(32px, 6vw, 44px);
+  --category-icon-size-laptop: 52px;
+  --category-menu-column-width: clamp(88px, 24vw, 116px);
+  --category-menu-button-min-height: clamp(40px, 12vw, 56px);
+  --category-menu-button-min-height-tablet: 64px;
+  --category-menu-button-min-height-laptop: 84px;
+
   --product-card-min-width: clamp(150px, 38vw, 192px);
+  --product-ranked-list-column-width: min(100%, clamp(240px, 75vw, 420px));
+
   --ranking-image-size: clamp(60px, 16vw, 110px);
   --ranking-number-width: clamp(20px, 2vw, 36px);
-  --new-arrival-card-width: 78%;
-  --new-arrival-card-height: 240px;
+
+  --new-arrival-card-width: clamp(180px, 42vw, 260px);
+  --new-arrival-card-aspect-ratio: 9 / 16;
+  
   --promotion-card-height: 180px;
-  --delivery-card-min-height: clamp(84px, 8vw, 120px);
+
+  --delivery-card-min-height: clamp(104px, 28vw, 128px);
+  --delivery-card-min-height-tablet: clamp(220px, 28vw, 260px);
+  --delivery-card-min-height-laptop: clamp(220px, 18vw, 280px);
+  --delivery-card-icon-size-mobile: 40px;
+
   --drawer-sidebar-width: 112px;
   --drawer-content-offset: 104px;
+
   --product-rank-offset: 52px;
   --product-rank-indent: -18px;
-  --app-icon-size: 36px;
+  
+  --app-icon-size: 48px;
 
   /* =========================
      RADIUS

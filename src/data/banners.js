@@ -24,7 +24,7 @@ export const banners = [
     image: '/images/home-hero/banner04.jpg',
   },
   {
-    id: 'phone-essentials',
+    id: 'phone-essentials-2',
     title: '2026 NEW\n휴대폰 필수템 모음',
     subtitle: '#맥세이프 #보조배터리 #충전기',
     image: '/images/home-hero/banner05.jpg',
@@ -36,7 +36,7 @@ export const banners = [
     image: '/images/home-hero/banner06.jpg',
   },
   {
-    id: 'gatsby-styling',
+    id: 'gatsby-styling-2',
     title: '갸스비로 완성하는\n헤어 스타일링',
     subtitle: '데일리 스타일링 루틴',
     image: '/images/home-hero/banner01.jpg',

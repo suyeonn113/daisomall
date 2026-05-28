@@ -1,26 +1,38 @@
 @use '../../../styles/foundation/mixins' as *;
 
 .delivery-service-grid {
-  @include grid-columns(2, 2);
+  @include grid-columns(2);
+  @include responsive-space(gap, var(--space-2), var(--space-3));
+
   @include respond-up(tablet) {
-    @include grid-columns(4, 3);
+    @include grid-columns(4);
   }
 }
 
 .delivery-service-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   min-height: var(--delivery-card-min-height);
-  @include respond-between(tablet, laptop) {
-    min-height: auto;
-    aspect-ratio: 3 / 4;
-  }
   background-color: var(--color-service-delivery);
   background-image: url('../../../../public/images/delivery/delivery.png');
   color: var(--color-text-inverse);
 
-  @include responsive-space(gap, var(--space-3), var(--space-4));
-  @include responsive-space(padding, var(--space-3), var(--space-4));
+  @include responsive-space(gap, var(--space-3), var(--space-4), var(--space-5));
+  @include responsive-space(padding, var(--space-4), var(--space-4), var(--space-5));
+
+  @include respond-up(tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: var(--delivery-card-min-height-tablet);
+  }
+
+  @include respond-up(laptop) {
+    min-height: var(--delivery-card-min-height-laptop);
+  }
 }
 
 .delivery-service-card,
@@ -28,12 +40,15 @@
 .delivery-service-card--today,
 .delivery-service-card--bulk {
   background-size: 30% auto;
-  background-position: right 0px bottom 10%;
+  background-position: right 0px bottom 0px;
   background-repeat: no-repeat;
 
-  @include respond-between(tablet, laptop) {
-    background-size: 100% auto;
-    background-position: right 0px bottom 0px;
+  @include respond-up(tablet) {
+    background-size: 72% auto;
+  }
+
+  @include respond-up(laptop) {
+    background-size: 86% auto;
   }
 }
 
@@ -53,17 +68,73 @@
 }
 
 .delivery-service-card__icon {
-  width: var(--app-icon-size);
-  height: var(--app-icon-size);
+  position: relative;
+  z-index: 1;
+  width: var(--delivery-card-icon-size-mobile);
+  height: var(--delivery-card-icon-size-mobile);
   flex-shrink: 0;
+
+  @include respond-up(tablet) {
+    width: calc(var(--app-icon-size) + var(--space-2));
+    height: calc(var(--app-icon-size) + var(--space-2));
+  }
+
+  @include respond-up(laptop) {
+    width: calc(var(--app-icon-size) + var(--space-4));
+    height: calc(var(--app-icon-size) + var(--space-4));
+  }
+}
+
+.delivery-service-card__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.delivery-service-card__eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  line-height: var(--line-height-tight);
+  color: rgb(var(--color-text-inverse-rgb) / 0.92);
+
+  @include text-size(caption);
+
+  @include respond-up(tablet) {
+    @include text-size(body);
+  }
 }
 
 .delivery-service-card strong {
+  display: block;
+  line-height: var(--line-height-tight);
+
   @include text-size(body-lg);
+
+  @include respond-up(tablet) {
+    @include text-size(title-lg);
+  }
+
+  @include respond-up(laptop) {
+    @include text-size(title);
+  }
 }
 
 .delivery-service-card p {
-  margin-top: var(--radius-xs);
+  margin-top: var(--space-3);
+  color: rgb(var(--color-text-inverse-rgb) / 0.88);
+  line-height: 1.35;
 
   @include text-size(caption);
+
+  @include respond-up(tablet) {
+    @include text-size(body-sm);
+  }
+
+  @include respond-up(laptop) {
+    @include text-size(caption);
+  }
+}
+
+.delivery-service-card p span {
+  display: block;
+  font-weight: 400;
 }

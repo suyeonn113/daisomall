@@ -1,12 +1,19 @@
+@use '../../../styles/foundation/functions' as *;
 @use '../../../styles/foundation/mixins' as *;
 
 .home-category-menu-section {
-  padding-top: calc(var(--space-4) * -1)!important;
+  margin-top: calc(var(--space-4) * -1);
+  padding-top: 0;
+
+  @include respond-up(laptop) {
+    margin-top: 0;
+    padding-top: var(--space-8);
+  }
 }
 
 .category-menu-grid {
-  @include scroll-row(clamp(88px, 20vw, 116px), 2);
-
+  @include scroll-row(var(--category-menu-column-width), 0);
+  
   grid-template-rows: repeat(2, auto);
   align-items: start;
 
@@ -25,6 +32,11 @@
     padding-inline: 0;
     overflow: visible;
   }
+
+  @include respond-up(laptop) {
+    width: min(100%, get-breakpoint(desktop-lg));
+    margin-inline: auto;
+  }
 }
 
 .category-menu-button {
@@ -37,25 +49,12 @@
   justify-content: start;
   gap: var(--space-1);
 
-  min-height: clamp(40px, 12vw, 56px);
+  min-height: var(--category-menu-button-min-height);
   padding-inline: var(--space-2);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    inset 0 -1px 0 rgba(0,0,0,0.035),
-    0 1px 2px rgba(0,0,0,0.03);
-
   transform: translateY(0);
   transition: transform var(--duration-fast) var(--ease-standard);
 
   @include text-size(caption);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: auto 0 0;
-    height: 52%;
-    z-index: -1;
-  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover,
@@ -65,10 +64,15 @@
   }
 
   @include respond-up(tablet) {
-    min-height: 64px;
+    min-height: var(--category-menu-button-min-height-tablet);
     flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-2);
+  }
+
+  @include respond-up(laptop) {
+    min-height: var(--category-menu-button-min-height-laptop);
+    padding: var(--space-4) var(--space-2);
   }
 
   span {
@@ -82,4 +86,9 @@
   height: var(--category-icon-size);
   object-fit: contain;
   flex-shrink: 0;
+
+  @include respond-up(laptop) {
+    width: var(--category-icon-size-laptop);
+    height: var(--category-icon-size-laptop);
+  }
 }
