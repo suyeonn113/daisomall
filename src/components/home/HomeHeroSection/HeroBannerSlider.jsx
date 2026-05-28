@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 const AUTO_SLIDE_DELAY = 4000
 const SWIPE_THRESHOLD = 40
@@ -153,7 +154,7 @@ function HeroBannerSlider({ banners }) {
                 handlePreviewClick(event, banner, bannerIndex)
               }}
             >
-              <img src={banner.image} alt="" />
+              <img src={getPublicAssetPath(banner.image)} alt="" />
               <div className="hero-banner__preview-title">
                 {banner.title.split('\n').map((line) => (
                   <strong key={line}>{line}</strong>
@@ -169,7 +170,11 @@ function HeroBannerSlider({ banners }) {
             handlePosterClick(event, getBannerAtOffset(0))
           }}
         >
-          <img src={getBannerAtOffset(0).image} alt="" className="hero-banner__image" />
+          <img
+            src={getPublicAssetPath(getBannerAtOffset(0).image)}
+            alt=""
+            className="hero-banner__image"
+          />
           <div className="hero-banner__content">
             {getBannerAtOffset(0).title.split('\n').map((line) => (
               <strong key={line}>{line}</strong>

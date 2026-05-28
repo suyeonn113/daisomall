@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { products } from '../../../data/products'
 import { formatPrice } from '../../../utils/formatPrice'
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 import { BagIcon } from '../../icons'
 
 function NewArrivalVideoCard({ content }) {
@@ -14,7 +15,7 @@ function NewArrivalVideoCard({ content }) {
   return (
     <article className="new-arrival-card">
       <div className="new-arrival-card__media">
-        <img src={content.image} alt="" />
+        <img src={getPublicAssetPath(content.image)} alt="" />
         {relatedProducts.length ? (
           <button
             type="button"
@@ -38,7 +39,7 @@ function NewArrivalVideoCard({ content }) {
                   to={`/products/${product.id}`}
                   className="new-arrival-card__product"
                 >
-                  <img src={product.image} alt="" />
+                  <img src={getPublicAssetPath(product.image)} alt="" />
                   <span>
                     <strong>{formatPrice(product.price)}</strong>
                     <em>{product.name}</em>

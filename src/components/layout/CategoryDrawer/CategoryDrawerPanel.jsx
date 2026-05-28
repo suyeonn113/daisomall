@@ -1,3 +1,5 @@
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
+
 function CategoryDrawerPanel({ sections, scrollContainerRef, onScroll, onSectionRef }) {
   if (sections.length === 0) {
     return (
@@ -19,7 +21,7 @@ function CategoryDrawerPanel({ sections, scrollContainerRef, onScroll, onSection
           <div className="category-drawer__links">
             {section.items.map((item) => (
               <a key={`${item.id}-${item.label}`} href={`/category/${item.id}`}>
-                {item.image && <img src={item.image} alt="" />}
+                {item.image && <img src={getPublicAssetPath(item.image)} alt="" />}
                 <span>{item.label}</span>
               </a>
             ))}

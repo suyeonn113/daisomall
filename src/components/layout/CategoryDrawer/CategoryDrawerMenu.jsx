@@ -1,3 +1,5 @@
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
+
 function CategoryDrawerMenu({ activeMenu, menuItems, quickMenus, onChange }) {
   return (
     <div className="category-drawer__menu">
@@ -16,7 +18,7 @@ function CategoryDrawerMenu({ activeMenu, menuItems, quickMenus, onChange }) {
       <div className="category-drawer__quick-menu">
         {quickMenus.map((item) => (
           <a key={item.id} href={`/category/${item.id}`}>
-            <img src={item.image} alt="" />
+            <img src={getPublicAssetPath(item.image)} alt="" />
             <span>{item.label}</span>
           </a>
         ))}

@@ -1,5 +1,15 @@
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
+
+const deliveryServiceImages = {
+  delivery: '/images/delivery/delivery.png',
+  pickup: '/images/delivery/pickup.png',
+  today: '/images/delivery/today.png',
+  bulk: '/images/delivery/bulk.png',
+}
+
 function DeliveryServiceCard({ service }) {
   const ServiceIcon = service.icon
+  const backgroundImage = getPublicAssetPath(deliveryServiceImages[service.id])
   const descriptionLines = Array.isArray(service.description)
     ? service.description
     : [service.description]
@@ -11,7 +21,11 @@ function DeliveryServiceCard({ service }) {
     : { style: { color: 'white' } }
 
   return (
-    <a className={`delivery-service-card delivery-service-card--${service.id}`} href="/">
+    <a
+      className={`delivery-service-card delivery-service-card--${service.id}`}
+      href="/"
+      style={{ '--delivery-service-image': `url(${backgroundImage})` }}
+    >
       <div className="delivery-service-card__copy">
         <span className="delivery-service-card__eyebrow">{service.eyebrow}</span>
         <strong>{service.title}</strong>

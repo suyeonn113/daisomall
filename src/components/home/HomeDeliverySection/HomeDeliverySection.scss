@@ -18,7 +18,7 @@
   justify-content: space-between;
   min-height: var(--delivery-card-min-height);
   background-color: var(--color-service-delivery);
-  background-image: url('../../../../public/images/delivery/delivery.png');
+  background-image: var(--delivery-service-image);
   color: var(--color-text-inverse);
 
   @include responsive-space(gap, var(--space-3), var(--space-4), var(--space-5));
@@ -54,17 +54,14 @@
 
 .delivery-service-card--pickup {
   background-color: var(--color-service-pickup);
-  background-image: url('../../../../public/images/delivery/pickup.png');
 }
 
 .delivery-service-card--today {
   background-color: var(--color-service-today);
-  background-image: url('../../../../public/images/delivery/today.png');
 }
 
 .delivery-service-card--bulk {
   background-color: var(--color-service-bulk);
-  background-image: url('../../../../public/images/delivery/bulk.png');
 }
 
 .delivery-service-card__icon {

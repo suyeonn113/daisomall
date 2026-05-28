@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 function PromotionCardList({ promotions, variant }) {
   const [activePromotionId, setActivePromotionId] = useState(promotions[0]?.id)
@@ -29,7 +30,7 @@ function PromotionCardList({ promotions, variant }) {
             setActivePromotionId(promotion.id)
           }}
         >
-          <img src={promotion.image} alt="" />
+          <img src={getPublicAssetPath(promotion.image)} alt="" />
           <strong>{promotion.title}</strong>
         </Link>
       ))}
