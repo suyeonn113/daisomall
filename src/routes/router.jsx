@@ -8,39 +8,44 @@ import StoreReadyPage from '../pages/StoreReadyPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import { PATHS } from './paths'
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: PATHS.home,
+      element: <MainLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: PATHS.productDetail,
+          element: <ProductDetailPage />,
+        },
+        {
+          path: PATHS.category,
+          element: <CategoryPage />,
+        },
+        {
+          path: PATHS.search,
+          element: <StoreReadyPage />,
+        },
+        {
+          path: 'store',
+          element: <StoreReadyPage />,
+        },
+        {
+          path: PATHS.promotion,
+          element: <PromotionPage />,
+        },
+        {
+          path: '*',
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: PATHS.home,
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: PATHS.productDetail,
-        element: <ProductDetailPage />,
-      },
-      {
-        path: PATHS.category,
-        element: <CategoryPage />,
-      },
-      {
-        path: PATHS.search,
-        element: <StoreReadyPage />,
-      },
-      {
-        path: 'store',
-        element: <StoreReadyPage />,
-      },
-      {
-        path: PATHS.promotion,
-        element: <PromotionPage />,
-      },
-      {
-        path: '*',
-        element: <NotFoundPage />,
-      },
-    ],
+    basename: import.meta.env.BASE_URL.replace(/\/$/, ''),
   },
-])
+)

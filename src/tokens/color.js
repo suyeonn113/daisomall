@@ -30,6 +30,12 @@ export const color = {
   serviceToday: 'var(--color-service-today)',
   serviceBulk: 'var(--color-service-bulk)',
 
+  snsBlog: 'var(--color-sns-blog)',
+  snsInstagram: 'var(--color-sns-instagram)',
+  snsFacebook: 'var(--color-sns-facebook)',
+  snsYoutube: 'var(--color-sns-youtube)',
+  snsTiktok: 'var(--color-sns-tiktok)',
+
   focusRing: 'var(--color-focus-ring)',
   current: 'currentColor',
 };

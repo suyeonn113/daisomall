@@ -1,39 +1,69 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { iconSize } from '../../../tokens/size'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
+import ArrowIcon from '../../icons/ArrowIcon'
 
 function PromotionCardList({ promotions, variant }) {
-  const [activePromotionId, setActivePromotionId] = useState(promotions[0]?.id)
-  const activePromotionIndex = promotions.findIndex(
-    (promotion) => promotion.id === activePromotionId,
-  )
+  const [activePromotionIndex, setActivePromotionIndex] = useState(0)
+  const isCategoryVariant = variant === 'horizontal'
 
   useEffect(() => {
-    setActivePromotionId(promotions[0]?.id)
+    setActivePromotionIndex(0)
   }, [promotions])
 
   return (
     <div className={`promotion-card-list is-${variant} active-index-${activePromotionIndex}`}>
-      {promotions.map((promotion) => (
-        <Link
-          key={promotion.id}
-          to={promotion.path}
-          className={
-            promotion.id === activePromotionId
-              ? 'promotion-card is-active'
-              : 'promotion-card'
-          }
-          onClick={(event) => {
-            if (promotion.id === activePromotionId) return
+      {promotions.map((promotion, index) => {
+        const isActive = index === activePromotionIndex
 
-            event.preventDefault()
-            setActivePromotionId(promotion.id)
-          }}
-        >
-          <img src={getPublicAssetPath(promotion.image)} alt="" />
-          <strong>{promotion.title}</strong>
-        </Link>
-      ))}
+        return (
+          <Link
+            key={`${promotion.id}-${index}`}
+            to="#"
+            className={isActive ? 'promotion-card is-active' : 'promotion-card'}
+            onClick={(event) => {
+              event.preventDefault()
+
+              if (isActive) return
+
+              setActivePromotionIndex(index)
+            }}
+          >
+            {!isCategoryVariant && promotion.ranking && (
+              <div className="promotion-card__ranking">
+                <span className="promotion-card__rank">{promotion.ranking.rank}</span>
+                <span className={`promotion-card__rank-change is-${promotion.ranking.direction}`}>
+                  {promotion.ranking.direction === 'up' && '▲'}
+                  {promotion.ranking.direction === 'down' && '▼'}
+                  {promotion.ranking.direction === 'same' && '-'}
+                  {promotion.ranking.change}
+                </span>
+              </div>
+            )}
+            <div className="promotion-card__media">
+              <img src={getPublicAssetPath(promotion.image)} alt="" />
+              <strong>
+                <span>{promotion.title}</span>
+                {isActive && isCategoryVariant && (
+                  <ArrowIcon
+                    size={iconSize.sm}
+                    className="promotion-card__title-icon"
+                    aria-hidden="true"
+                  />
+                )}
+              </strong>
+              {isActive && !isCategoryVariant && (
+                <ArrowIcon
+                  size={iconSize.sm}
+                  className="promotion-card__corner-icon"
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+          </Link>
+        )
+      })}
     </div>
   )
 }

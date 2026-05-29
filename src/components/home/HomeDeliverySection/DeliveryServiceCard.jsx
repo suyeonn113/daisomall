@@ -13,7 +13,7 @@ function DeliveryServiceCard({ service }) {
   const descriptionLines = Array.isArray(service.description)
     ? service.description
     : [service.description]
-  const iconColorProps = service.id === 'bulk'
+  const iconColorProps = ['bulk', 'delivery'].includes(service.id)
     ? {
         primaryColor: 'white',
         secondaryColor: 'rgb(var(--color-white-rgb) / 0.7)',
