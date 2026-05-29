@@ -45,7 +45,8 @@ function PromotionCardList({ promotions, variant }) {
               <img src={getPublicAssetPath(promotion.image)} alt="" />
               <strong>
                 <span>{promotion.title}</span>
-                {isActive && isCategoryVariant && (
+
+                {isCategoryVariant && (
                   <ArrowIcon
                     size={iconSize.sm}
                     className="promotion-card__title-icon"
@@ -53,7 +54,8 @@ function PromotionCardList({ promotions, variant }) {
                   />
                 )}
               </strong>
-              {isActive && !isCategoryVariant && (
+
+              {!isCategoryVariant && (
                 <ArrowIcon
                   size={iconSize.sm}
                   className="promotion-card__corner-icon"

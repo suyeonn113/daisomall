@@ -61,6 +61,24 @@ export const promotionGroups = {
       subtitle: '카테고리 기획전',
       imageFile: 'category-03.webp',
     },
+    {
+      id: 'category-pure',
+      title: '1개 100원 천원 생리대',
+      subtitle: '카테고리 기획전',
+      imageFile: 'category-01.webp',
+    },
+    {
+      id: 'category-hair',
+      title: '가성비로 완성하는 헤어 스타일링',
+      subtitle: '카테고리 기획전',
+      imageFile: 'category-02.webp',
+    },
+    {
+      id: 'category-solution',
+      title: '비듬 고민별 맞춤 솔루션',
+      subtitle: '카테고리 기획전',
+      imageFile: 'category-03.webp',
+    },
   ]),
   popular: createPromotionGroup('popular', [
     {
