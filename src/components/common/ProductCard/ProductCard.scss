@@ -4,6 +4,9 @@
 .product-card {
   position: relative;
   min-width: var(--product-card-min-width);
+  color: inherit;
+  text-decoration: none;
+  @include interactive-hover-light;
 }
 
 .product-card__rank {

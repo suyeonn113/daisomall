@@ -27,4 +27,5 @@
   color: var(--color-text);
 
   @include text-size(micro);
+  @include interactive-hover-text;
 }

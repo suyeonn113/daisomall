@@ -17,5 +17,6 @@
   color: var(--color-muted);
 
   @include text-size(caption);
+  @include interactive-hover-text;
 }
 

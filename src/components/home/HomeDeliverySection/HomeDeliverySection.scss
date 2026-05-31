@@ -23,6 +23,7 @@
 
   @include responsive-space(gap, var(--space-3), var(--space-4), var(--space-5));
   @include responsive-space(padding, var(--space-4), var(--space-4), var(--space-5));
+  @include interactive-hover-light;
 
   @include respond-up(tablet) {
     flex-direction: column;
@@ -67,18 +68,15 @@
 .delivery-service-card__icon {
   position: relative;
   z-index: get-z(base);
-  width: var(--delivery-card-icon-size-mobile);
-  height: var(--delivery-card-icon-size-mobile);
+  --delivery-service-card-icon-size: var(--delivery-card-icon-size-mobile);
   flex-shrink: 0;
 
   @include respond-up(tablet) {
-    width: calc(var(--app-icon-size) + var(--space-2));
-    height: calc(var(--app-icon-size) + var(--space-2));
+    --delivery-service-card-icon-size: calc(var(--app-icon-size) + var(--space-2));
   }
 
   @include respond-up(laptop) {
-    width: calc(var(--app-icon-size) + var(--space-4));
-    height: calc(var(--app-icon-size) + var(--space-4));
+    --delivery-service-card-icon-size: calc(var(--app-icon-size) + var(--space-4));
   }
 }
 

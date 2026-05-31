@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 function FeatureShortcutButton({ shortcut }) {
   return (
-    <button type="button" className="feature-shortcut-button">
+    <Link to="#" className="feature-shortcut-button">
       <img src={getPublicAssetPath(shortcut.image)} alt="" />
       <span>{shortcut.label}</span>
-    </button>
+    </Link>
   )
 }
 

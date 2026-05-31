@@ -23,6 +23,7 @@
   background: var(--color-bg-main);
   color: var(--color-text-primary);
   box-shadow: var(--shadow-sm);
+  @include interactive-hover-icon;
 }
 
 .floating-action-button--top svg {
