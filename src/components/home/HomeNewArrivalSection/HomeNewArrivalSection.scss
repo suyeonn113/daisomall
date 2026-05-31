@@ -3,9 +3,8 @@
 .new-arrival-carousel {
   display: flex;
   gap: var(--space-2);
-  margin-inline: calc(var(--space-4) * -1);
   padding-left: var(--space-4);
-  padding-right: var(--space-4);
+  // padding-right: var(--space-4);
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
