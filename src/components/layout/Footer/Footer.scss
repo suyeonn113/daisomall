@@ -10,6 +10,10 @@
 
   background: var(--color-bg-main);
   color: var(--color-text-primary);
+
+  @include respond-up(tablet) {
+    padding-top: var(--space-12);
+  }
 }
 
 .site-footer__app {
@@ -24,15 +28,6 @@
     align-items: center;
     gap: var(--space-6);
     width: 100%;
-
-    .site-footer__app-head {
-      margin-bottom: var(--space-0);
-    }
-
-    .site-footer__store-list {
-      margin-top: var(--space-0);
-      transform: none;
-    }
   }
 }
 
@@ -42,6 +37,10 @@
   justify-content: center;
   gap: var(--space-3);
   margin-bottom: var(--space-3);
+
+   @include respond-up(tablet) {
+    margin-bottom: var(--space-0);
+  }
 }
 
 .site-footer__app-icon {
@@ -84,6 +83,11 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-2);
+
+  @include respond-up(tablet) {
+    margin-top: var(--space-0);
+    transform: none;
+  }
 }
 
 .site-footer__store-button {
