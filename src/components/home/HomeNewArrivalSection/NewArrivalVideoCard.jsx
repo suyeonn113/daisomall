@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { products } from '../../../data/products'
+import { getProductsByIds } from '../../../services/productService'
 import { formatPrice } from '../../../utils/formatPrice'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 import { BagIcon } from '../../icons'
 
 function NewArrivalVideoCard({ content }) {
   const [isProductsOpen, setIsProductsOpen] = useState(false)
-  const relatedProducts = content.relatedProductIds
-    ?.map((productId) => products.find((product) => product.id === productId))
-    .filter(Boolean)
-    ?? []
+  const relatedProducts = getProductsByIds(content.relatedProductIds)
 
   return (
     <article className="new-arrival-card">

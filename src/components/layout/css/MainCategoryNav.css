@@ -1,0 +1,214 @@
+/* ================================
+   FUNCTIONS
+================================ */
+/* ================================
+   MAPS
+================================ */
+/* Sass-only values used by functions and mixins. */
+/* =========================
+   BREAKPOINT
+========================= */
+/* =========================
+   SPACING
+========================= */
+/* =========================
+   FONT SIZE
+========================= */
+/* =========================
+   RADIUS
+========================= */
+/* =========================
+   Z-INDEX
+========================= */
+/* =========================
+   PX to REM
+========================= */
+/* =========================
+   MAP GETTERS
+========================= */
+/* ================================
+   MIXINS
+================================ */
+/* =========================
+   RESPONSIVE
+========================= */
+/* =========================
+   FLEX / GRID
+========================= */
+/* =========================
+   UI
+========================= */
+/* =========================
+   TYPOGRAPHY
+========================= */
+/* =========================
+   TRANSITION
+========================= */
+/* =========================
+   INTERACTIVE HOVER
+========================= */
+.main-category-nav {
+  display: flex;
+  gap: var(--space-2);
+}
+@media (min-width: 768px) {
+  .main-category-nav {
+    gap: var(--space-3);
+  }
+}
+.main-category-nav {
+  padding-inline: var(--space-4);
+}
+@media (min-width: 768px) {
+  .main-category-nav {
+    padding-inline: var(--space-5);
+  }
+}
+@media (min-width: 1024px) {
+  .main-category-nav {
+    padding-inline: var(--space-6);
+  }
+}
+.main-category-nav {
+  overflow-x: auto;
+  border-bottom: var(--line-thin) solid var(--color-border-primary);
+  padding-block: var(--space-1);
+  scrollbar-width: none;
+}
+
+.main-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-category-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--header-nav-height);
+  padding-inline: var(--space-2);
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background, color var(--duration-base) var(--ease-standard);
+}
+@media (hover: hover) and (pointer: fine) {
+  .main-category-nav__link {
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+  .main-category-nav__link:hover {
+    opacity: 0.7;
+  }
+}
+.main-category-nav__link:focus-visible {
+  outline-offset: -2px;
+}
+
+.main-category-nav__link.is-active {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.main-category-nav__link.is-active::after {
+  content: "";
+  position: absolute;
+  right: var(--space-2);
+  bottom: calc(-1 * var(--space-1));
+  left: var(--space-2);
+  height: var(--line-thin);
+  border-radius: var(--radius-xs);
+  background: currentColor;
+}
+
+.main-category-nav__link--category-action {
+  display: none;
+}
+
+.main-category-nav__link--desktop-shortcut,
+.main-category-nav__delivery-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-category-nav__link--category-action {
+    display: inline-flex;
+    gap: var(--space-2);
+  }
+}
+@media (min-width: 1024px) {
+  .main-category-nav {
+    align-items: center;
+  }
+  .main-category-nav__link--desktop-shortcut,
+  .main-category-nav__delivery-links {
+    display: inline-flex;
+  }
+  .main-category-nav__link--delivery {
+    display: none;
+  }
+  .main-category-nav__delivery-links {
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+  .main-category-nav__delivery-links .main-category-nav__item {
+    color: var(--color-text-primary);
+  }
+  .main-category-nav__link--delivery-service {
+    gap: var(--space-1);
+  }
+}
+.main-category-nav__link--beauty {
+  color: var(--color-nav-beauty-muted);
+  background: linear-gradient(90deg, var(--color-nav-beauty-muted) 0%, var(--color-nav-beauty-muted) 52%, var(--color-nav-beauty-health-muted));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-category-nav__link--beauty.is-active {
+  color: var(--color-nav-beauty);
+  background: linear-gradient(90deg, var(--color-nav-beauty) 0%, var(--color-nav-beauty) 52%, var(--color-nav-beauty-health));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-category-nav__link--beauty.is-active::after {
+  background: linear-gradient(90deg, var(--color-nav-beauty) 0%, var(--color-nav-beauty) 52%, var(--color-nav-beauty-health));
+}
+
+.main-category-nav__link--new {
+  color: var(--color-nav-new-muted);
+}
+
+.main-category-nav__link--new.is-active {
+  color: var(--color-nav-new);
+}
+
+.main-category-nav__link--delivery-service-pickup svg {
+  color: var(--color-daiso-service-pickup-icon);
+}
+
+.main-category-nav__link--delivery-service-today svg {
+  color: var(--color-daiso-service-today-icon);
+}
+
+.main-category-nav__link--delivery-service-bulk svg {
+  color: var(--color-daiso-service-bulk-icon-primary);
+}
+
+.main-category-nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  .main-category-nav__item {
+    font-size: 16px;
+  }
+}
+.main-category-nav__item {
+  line-height: 1;
+}/*# sourceMappingURL=MainCategoryNav.css.map */
