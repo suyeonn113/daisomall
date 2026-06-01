@@ -16,7 +16,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
+
+  @include respond-up(tablet) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+    width: 100%;
+
+    .site-footer__app-head {
+      margin-bottom: var(--space-0);
+    }
+
+    .site-footer__store-list {
+      margin-top: var(--space-0);
+      transform: none;
+    }
+  }
 }
 
 .site-footer__app-head {
@@ -142,7 +159,7 @@
 .site-footer__service ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3) var(--space-4);
+  gap: var(--space-2) var(--space-4);
 }
 
 .site-footer__service a {
