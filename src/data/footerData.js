@@ -77,17 +77,17 @@ export const policyLinks = [
 
 export const certList = [
   {
-    label: '소비자중심',
+    label: '소비자중심경영 인증',
     image: '/images/footer/cert-consumer.svg',
     alt: '소비자중심 인증',
   },
   {
-    label: 'KMR',
+    label: '품질경영시스템 인증',
     image: '/images/footer/cert-kmr.svg',
     alt: 'KMR 인증',
   },
   {
-    label: '위해상품 ZERO',
+    label: '위해상품 차단시스템 운영매장',
     image: '/images/footer/cert-zero.svg',
     alt: '위해상품 ZERO 인증',
   },

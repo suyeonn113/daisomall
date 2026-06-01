@@ -174,6 +174,7 @@ function Footer() {
           {certList.map((cert) => (
             <span key={cert.label} className="site-footer__cert">
               <img src={getPublicAssetPath(cert.image)} alt={cert.alt} />
+              <span className="site-footer__cert-name">{cert.label}</span>
             </span>
           ))}
         </div>
