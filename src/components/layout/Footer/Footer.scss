@@ -13,12 +13,18 @@
 }
 
 .site-footer__app {
-  display: grid;
-  grid-template-columns: auto minmax(0, max-content);
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-bottom: var(--space-10);
+}
+
+.site-footer__app-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-3);
 }
 
 .site-footer__app-icon {
@@ -27,12 +33,18 @@
   height: 38px;
   place-items: center;
   border-radius: var(--radius-sm);
-  background: var(--color-brand-red);
+  background: transparent;
 }
 
 .site-footer__app-icon img {
-  width: 28px;
-  height: auto;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.site-footer__app-copy {
+  text-align: left;
 }
 
 .site-footer__app-copy strong {
@@ -52,8 +64,9 @@
 
 .site-footer__store-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-3);
 }
 
 .site-footer__store-button {
@@ -74,10 +87,10 @@
 
 .site-footer__store-button img {
   width: 18px;
-  height: auto;
-  padding: 3px;
-  border-radius: var(--radius-xs);
-  background: var(--color-brand-red);
+  height: 18px;
+  padding: var(--space-0);
+  border-radius: 0;
+  background: transparent;
 }
 
 .site-footer__store-button small {
@@ -129,7 +142,7 @@
 .site-footer__service ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-3) var(--space-4);
 }
 
 .site-footer__service a {
@@ -306,6 +319,7 @@
 }
 
 .site-footer__cert-list {
+  margin: var(--space-4) 0 var(--space-6);
   display: flex;
   justify-content: center;
   gap: var(--space-3);
@@ -313,8 +327,8 @@
 
 .site-footer__cert {
   display: grid;
-  width: 48px;
-  min-height: 48px;
+  width: 46px;
+  min-height: 46px;
   place-items: center;
   padding: var(--space-1);
   border: var(--line-thin) solid var(--color-border-secondary);
@@ -326,11 +340,11 @@
 }
 
 .site-footer__cert img {
-  width: 28px;
+  width: 30px;
+  height: 24px;
   height: auto;
-  padding: 3px;
+  padding: var(--space-0);
   border-radius: var(--radius-xs);
-  background: var(--color-brand-red);
 }
 
 .site-footer__copy {

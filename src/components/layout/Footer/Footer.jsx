@@ -15,10 +15,12 @@ import {
   appButtons,
   policyLinks,
   socialLinks,
+  certList,
 } from '../../../data/footerData'
 import './Footer.scss'
 
 const daisoLogo = '/icons/Daiso-logo.svg'
+const appIcon = '/images/footer/app-order-icon.svg'
 
 
 
@@ -55,24 +57,28 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__app">
-        <span className="site-footer__app-icon" aria-hidden="true">
-          <img src={getPublicAssetPath(daisoLogo)} alt="" />
-        </span>
+        <div className="site-footer__app-head">
+          <span className="site-footer__app-icon" aria-hidden="true">
+            <img src={getPublicAssetPath(appIcon)} alt="" />
+          </span>
+
         <div className="site-footer__app-copy">
           <strong>찾고 담고 바로 주문</strong>
           <p>재고 확인부터 주문까지 한 번에</p>
-          <div className="site-footer__store-list" aria-label="앱 다운로드">
-            {appButtons.map((button) => (
-              <Link key={button.id} to="/store" className="site-footer__store-button">
-                <img src={getPublicAssetPath(daisoLogo)} alt="" />
-                <span>
-                  <small>{button.label}</small>
-                  {button.store}
-                </span>
-              </Link>
-            ))}
-          </div>
         </div>
+      </div>
+
+      <div className="site-footer__store-list" aria-label="앱 다운로드">
+        {appButtons.map((button) => (
+          <Link key={button.id} to="/store" className="site-footer__store-button">
+            <img src={getPublicAssetPath(button.image)} alt={button.alt} />
+            <span>
+              <small>{button.label}</small>
+              {button.store}
+            </span>
+          </Link>
+          ))}
+      </div>
       </div>
 
       <div className="site-footer__services">
@@ -165,10 +171,9 @@ function Footer() {
           daisomall_help@daiso.co.kr
         </p>
         <div className="site-footer__cert-list" aria-label="인증마크">
-          {['소비자중심', 'KMR', '위해상품 ZERO'].map((label) => (
-            <span key={label} className="site-footer__cert">
-              <img src={getPublicAssetPath(daisoLogo)} alt="" />
-              {label}
+          {certList.map((cert) => (
+            <span key={cert.label} className="site-footer__cert">
+              <img src={getPublicAssetPath(cert.image)} alt={cert.alt} />
             </span>
           ))}
         </div>

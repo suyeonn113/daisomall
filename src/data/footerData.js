@@ -55,14 +55,14 @@ export const appButtons = [
     id: 'google-play',
     label: 'GET IT ON',
     store: 'Google Play',
-    image: '/images/footer/google-play.png',
+    image: '/images/footer/google-play.svg',
     alt: 'Google Play에서 다운로드',
   },
   {
     id: 'app-store',
     label: 'Download on the',
     store: 'App Store',
-    image: '/images/footer/app-store.png',
+    image: '/images/footer/app-store.svg',
     alt: 'App Store에서 다운로드',
   },
 ]
