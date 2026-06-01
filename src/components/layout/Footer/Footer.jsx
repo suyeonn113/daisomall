@@ -19,7 +19,6 @@ import {
 } from '../../../data/footerData'
 import './Footer.scss'
 
-const daisoLogo = '/icons/Daiso-logo.svg'
 const appIcon = '/images/footer/app-order-icon.svg'
 
 
