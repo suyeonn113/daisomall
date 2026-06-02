@@ -1,21 +1,14 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import { products } from '../../../data/products'
 import { rankingCategories } from '../../../data/rankings'
+import { useRankingProducts } from '../../../hooks/useRankingProducts'
 import RankingTabList from './RankingTabList'
 import RankingProductList from './RankingProductList'
 import './HomeRankingSection.scss'
 
 function HomeRankingSection() {
   const [activeCategoryId, setActiveCategoryId] = useState(rankingCategories[0].id)
-  const activeCategory = rankingCategories.find(
-    (category) => category.id === activeCategoryId,
-  ) ?? rankingCategories[0]
-  const rankedProducts = useMemo(() => {
-    return products
-      .filter((product) => product.categoryId === activeCategory.id)
-      .sort((a, b) => a.rank - b.rank)
-  }, [activeCategory])
+  const { rankedProducts } = useRankingProducts(activeCategoryId);
 
   return (
     <section className="home-section">

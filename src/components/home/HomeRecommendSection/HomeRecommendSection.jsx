@@ -1,12 +1,11 @@
 import ProductCardList from '../../common/ProductCardList/ProductCardList'
 import ScrollNavigator from '../../common/ScrollNavigator/ScrollNavigator'
 import SectionHeader from '../../common/SectionHeader/SectionHeader'
-import { products } from '../../../data/products'
+import { useProducts } from '../../../hooks/useProducts'
 import './HomeRecommendSection.scss'
-import { getRecommendProducts } from '../../../services/productService'
 
 function HomeRecommendSection() {
-  const sortedProducts = getRecommendProducts();
+  const {recommendedProducts} = useProducts();
 
   return (
     <section className="home-section">
@@ -16,7 +15,7 @@ function HomeRecommendSection() {
         previousLabel="이전 추천상품 보기"
         nextLabel="다음 추천상품 보기"
       >
-        <ProductCardList products={sortedProducts} />
+        <ProductCardList products={recommendedProducts} />
       </ScrollNavigator>
     </section>
   )
