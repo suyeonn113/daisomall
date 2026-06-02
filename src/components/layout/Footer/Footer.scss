@@ -7,13 +7,13 @@
     var(--space-8) var(--space-5) calc(var(--bottom-tab-height) + var(--space-10)),
     var(--space-10) var(--space-6) calc(var(--bottom-tab-height) + var(--space-12))
   );
-
+  
   background: var(--color-bg-main);
   color: var(--color-text-primary);
 
   @include respond-up(tablet) {
     padding-top: var(--space-12);
-    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.025);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.025);
   }
 }
 
