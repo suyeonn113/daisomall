@@ -17,6 +17,7 @@ import {
   socialLinks,
   certList,
 } from '../../../data/footerData'
+
 import './Footer.scss'
 
 const appIcon = '/images/footer/app-order-icon.svg'
