@@ -11,7 +11,7 @@ function FloatingActionButtons() {
   return (
     <div className="floating-action-buttons" aria-label="빠른 메뉴">
       <button type="button" className="floating-action-button" aria-label="최근 본 상품">
-        <TimeIcon size={iconSize.sm} />
+        <TimeIcon size={iconSize.sm}/>
       </button>
       <button
         type="button"

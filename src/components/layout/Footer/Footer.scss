@@ -175,12 +175,12 @@
 
 .site-footer__menus {
   margin-bottom: var(--space-3);
-  border-top: var(--line-thin) solid var(--color-border-strong);
+  border-top: 0;
 }
 
 .site-footer__quick-links {
-  margin-bottom: var(--space-7);
-  border-top: var(--line-thin) solid var(--color-border-primary);
+  margin-bottom: var(--space-6);
+  border-top: 0;
 }
 
 .site-footer__toggle {
@@ -210,6 +210,7 @@
   transition: transform var(--duration-base) var(--ease-standard);
 }
 
+
 .site-footer__quick-links .site-footer__menu-button svg {
   transform: none;
 }
@@ -230,14 +231,14 @@
 
 .site-footer__submenu {
   display: grid;
-  gap: var(--space-3);
-  padding-bottom: var(--space-5);
+  gap: var(--space-2);
+  padding-block: var(--space-1) var(--space-5);
 }
 
 .site-footer__submenu a {
   color: var(--color-text-secondary);
 
-  @include text-size(body);
+  @include text-size(body-sm);
 }
 
 .site-footer__social-list {
@@ -249,6 +250,7 @@
 
 .site-footer__social-link {
   @include icon-button(var(--icon-size-lg));
+  
 }
 
 .site-footer__social-link.is-blog {
