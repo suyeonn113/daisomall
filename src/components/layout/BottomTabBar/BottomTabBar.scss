@@ -23,7 +23,7 @@
   display: grid;
   place-items: center;
   align-content: center;
-  gap: get-radius(xs);
+  gap: get-radius(sm);
   color: var(--color-text);
 
   @include text-size(micro);
