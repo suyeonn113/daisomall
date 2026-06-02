@@ -3,6 +3,15 @@ export const color = {
   white: 'var(--color-white)',
   black: 'var(--color-black)',
 
+  daisoRealRed: 'var(--color-daiso-real-red)',
+  daisoRealBlue: 'var(--color-daiso-real-blue)',
+  daisoRealWhite: 'var(--color-daiso-real-white)',
+  daisoRealDarkGray: 'var(--color-daiso-real-dark-gray)',
+
+  daisoRed: 'var(--color-daiso-red)',
+  daisoWhite: 'var(--color-daiso-white)',
+  daisoDarkGray: 'var(--color-daiso-dark-gray)',
+
   brandRed: 'var(--color-brand-red)',
   brandRedDark: 'var(--color-brand-red-dark)',
   brandBlue: 'var(--color-brand-blue)',
@@ -24,6 +33,11 @@ export const color = {
   borderPrimary: 'var(--color-border-primary)',
   borderSecondary: 'var(--color-border-secondary)',
   borderStrong: 'var(--color-border-strong)',
+
+  stateActive: 'var(--color-state-active)',
+  stateSelected: 'var(--color-state-selected)',
+  stateFocus: 'var(--color-state-focus)',
+  stateDisabled: 'var(--color-state-disabled)',
 
   serviceDelivery: 'var(--color-service-delivery)',
   servicePickup: 'var(--color-service-pickup)',

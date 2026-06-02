@@ -90,6 +90,7 @@
   position: relative;
   white-space: nowrap;
   color: var(--color-muted);
+  @include interactive-hover-text;
 }
 
 .category-drawer__tabs .is-active,
@@ -244,6 +245,7 @@
   align-items: center;
   gap: var(--space-3);
   min-height: var(--drawer-menu-image-size);
+  @include interactive-hover-text;
 }
 
 .category-drawer__links img {

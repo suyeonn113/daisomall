@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 const deliveryServiceImages = {
@@ -7,6 +8,8 @@ const deliveryServiceImages = {
   bulk: '/images/delivery/bulk.png',
 }
 
+const deliveryServiceIconSize = 'var(--delivery-service-card-icon-size)'
+
 function DeliveryServiceCard({ service }) {
   const ServiceIcon = service.icon
   const backgroundImage = getPublicAssetPath(deliveryServiceImages[service.id])
@@ -15,15 +18,15 @@ function DeliveryServiceCard({ service }) {
     : [service.description]
   const iconColorProps = ['bulk', 'delivery'].includes(service.id)
     ? {
-        primaryColor: 'white',
+        primaryColor: 'var(--color-text-inverse)',
         secondaryColor: 'rgb(var(--color-white-rgb) / 0.7)',
       }
-    : { style: { color: 'white' } }
+    : { style: { color: 'var(--color-text-inverse)' } }
 
   return (
-    <a
+    <Link
       className={`delivery-service-card delivery-service-card--${service.id}`}
-      href="/"
+      to="#"
       style={{ '--delivery-service-image': `url(${backgroundImage})` }}
     >
       <div className="delivery-service-card__copy">
@@ -35,8 +38,12 @@ function DeliveryServiceCard({ service }) {
           ))}
         </p>
       </div>
-      <ServiceIcon {...iconColorProps} className="delivery-service-card__icon" />
-    </a>
+      <ServiceIcon
+        {...iconColorProps}
+        size={deliveryServiceIconSize}
+        className="delivery-service-card__icon"
+      />
+    </Link>
   )
 }
 

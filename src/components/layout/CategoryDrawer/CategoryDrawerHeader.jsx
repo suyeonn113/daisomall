@@ -1,4 +1,5 @@
 import { CloseIcon } from '../../icons'
+import { iconSize } from '../../../tokens/size'
 
 function CategoryDrawerHeader({ activeMainTab, mainTabs, onChange, onClose }) {
   return (
@@ -22,7 +23,7 @@ function CategoryDrawerHeader({ activeMainTab, mainTabs, onChange, onClose }) {
         aria-label="카테고리 닫기"
         onClick={onClose}
       >
-        <CloseIcon />
+        <CloseIcon size={iconSize.md} />
       </button>
     </div>
   )

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 function CategoryDrawerPanel({ sections, scrollContainerRef, onScroll, onSectionRef }) {
@@ -20,10 +21,10 @@ function CategoryDrawerPanel({ sections, scrollContainerRef, onScroll, onSection
           <h2>{section.title}</h2>
           <div className="category-drawer__links">
             {section.items.map((item) => (
-              <a key={`${item.id}-${item.label}`} href={`/category/${item.id}`}>
+              <Link key={`${item.id}-${item.label}`} to={`/category/${item.id}`}>
                 {item.image && <img src={getPublicAssetPath(item.image)} alt="" />}
                 <span>{item.label}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </section>

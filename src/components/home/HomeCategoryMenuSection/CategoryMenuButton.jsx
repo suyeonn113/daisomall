@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 function CategoryMenuButton({ category }) {
   return (
-    <a className="category-menu-button" href={`/category/${category.id}`}>
+    <Link className="category-menu-button" to="#">
       <img src={getPublicAssetPath(category.image)} alt="" />
       <span>{category.label}</span>
-    </a>
+    </Link>
   )
 }
 

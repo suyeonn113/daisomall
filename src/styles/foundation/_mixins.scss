@@ -195,3 +195,52 @@
     var(--duration-#{$duration})
     var(--ease-#{$easing});
 }
+
+/* =========================
+   INTERACTIVE HOVER
+========================= */
+
+@mixin interactive-hover-light {
+  @media (hover: hover) and (pointer: fine) {
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      filter var(--duration-base) var(--ease-standard);
+
+    &:hover {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+  }
+}
+
+@mixin interactive-hover-button {
+  @media (hover: hover) and (pointer: fine) {
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard);
+
+    &:hover {
+      filter: brightness(0.92);
+    }
+  }
+}
+
+@mixin interactive-hover-text {
+  @media (hover: hover) and (pointer: fine) {
+    transition: color var(--duration-fast) var(--ease-standard);
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@mixin interactive-hover-icon {
+  @media (hover: hover) and (pointer: fine) {
+    transition: background-color var(--duration-fast) var(--ease-standard);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

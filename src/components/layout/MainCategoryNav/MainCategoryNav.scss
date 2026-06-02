@@ -27,6 +27,7 @@
   white-space: nowrap;
 
   @include transition((background, color));
+  @include interactive-hover-text;
 
   &:focus-visible {
     outline-offset: -2px;

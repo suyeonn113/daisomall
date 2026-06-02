@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 
 function CategoryDrawerMenu({ activeMenu, menuItems, quickMenus, onChange }) {
@@ -17,10 +18,10 @@ function CategoryDrawerMenu({ activeMenu, menuItems, quickMenus, onChange }) {
       </div>
       <div className="category-drawer__quick-menu">
         {quickMenus.map((item) => (
-          <a key={item.id} href={`/category/${item.id}`}>
+          <Link key={item.id} to={`/category/${item.id}`}>
             <img src={getPublicAssetPath(item.image)} alt="" />
             <span>{item.label}</span>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
