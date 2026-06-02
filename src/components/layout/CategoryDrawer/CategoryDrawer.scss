@@ -187,7 +187,7 @@
   @include text-size(caption);
 
   @include respond-up(tablet) {
-    @include text-size(body);
+    @include text-size(body-sm);
     padding: var(--space-3) var(--space-5);
   }
 }
