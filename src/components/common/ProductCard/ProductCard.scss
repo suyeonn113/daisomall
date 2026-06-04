@@ -9,6 +9,12 @@
   @include interactive-hover-light;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    filter: none;
+  }
+}
+
 .product-card__rank {
   position: absolute;
   top: var(--product-rank-offset);
@@ -32,11 +38,24 @@
   position: absolute;
   top: var(--space-2);
   left: var(--space-2);
-  padding: 3px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 22px;
+  padding: 4px 7px 5px;
   border-radius: var(--radius-pill);
-  background: var(--color-black);
+  background: var(--color-badge-product-bg);
+  box-shadow: var(--shadow-product-badge);
   color: var(--color-text-inverse);
+  font-weight: 700;
   font-size: get-font-size(micro, mobile-xs);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.product-card__label strong {
+  color: var(--color-badge-product-accent);
+  font-weight: 800;
 }
 
 .product-card__wish {

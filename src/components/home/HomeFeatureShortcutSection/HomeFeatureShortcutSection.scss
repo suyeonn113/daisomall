@@ -20,16 +20,20 @@
   justify-items: center;
   gap: var(--space-1);
   min-height: var(--shortcut-size);
-  padding: var(--space-2);
-  background: var(--color-bg-main);
-  box-shadow: 0 1px 4px rgb(var(--color-black-rgb) / 0.04);
+  padding: var(--space-2) 0;
   @include interactive-hover-light;
 
   @include text-size(caption);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .feature-shortcut-button:hover {
+    filter: none;
+  }
+}
+
 .feature-shortcut-button img {
-  width: calc(var(--shortcut-size) - var(--space-1));
+  width: calc(var(--shortcut-size) + var(--space-3));
   aspect-ratio: 1 / 1;
   object-fit: contain;
 }

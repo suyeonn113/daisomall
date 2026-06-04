@@ -78,6 +78,9 @@
   --color-bg-dark: #2f3237;
   --color-bg-backdrop: rgb(var(--color-black-rgb) / 0.35);
   --color-bg-header: rgb(80 76 66 / 0.78);
+  --color-badge-product-bg: #15171a;
+  --color-badge-product-accent: #bfe7f2;
+  --color-badge-product-highlight: rgb(var(--color-white-rgb) / 0.18);
   --gradient-image-readable:
     linear-gradient(
       180deg,
@@ -175,7 +178,7 @@
 
   --shortcut-size: 56px;
 
-  --category-icon-size: clamp(32px, 6vw, 44px);
+  --category-icon-size: clamp(38px, 8vw, 52px);
   --category-icon-size-laptop: 52px;
   --category-menu-column-width: clamp(88px, 24vw, 120px);
   --category-menu-button-min-height: clamp(40px, 12vw, 56px);
@@ -189,7 +192,7 @@
   --ranking-number-width: clamp(20px, 2vw, 36px);
 
   --new-arrival-card-width: clamp(220px, 48vw, 320px);
-  --new-arrival-card-aspect-ratio: 9 / 16;
+  --new-arrival-card-aspect-ratio: 2 / 3;
   
   --promotion-card-height: 200px;
 
@@ -221,6 +224,10 @@
 
   --shadow-sm: 0 2px 8px rgb(var(--color-black-rgb) / 0.06);
   --shadow-md: 0 8px 24px rgb(var(--color-black-rgb) / 0.1);
+  --shadow-product-badge:
+    inset 0 1px 0 var(--color-badge-product-highlight),
+    inset 0 -1px 1px rgb(var(--color-black-rgb) / 0.28),
+    0 2px 5px rgb(var(--color-black-rgb) / 0.24);
   --shadow-icon-fill:
     inset 0 1px 0 rgb(var(--color-bg-main-rgb) / 0.95),
     inset 0 -1px 2px rgb(var(--color-black-rgb) / 0.06),

@@ -108,7 +108,7 @@
   inset: 0;
   z-index: 2;
   padding: var(--space-2);
-  background: rgb(var(--color-white-rgb) / 0.9);
+  background: rgb(var(--color-white-rgb) / 0.96);
   backdrop-filter: blur(10px);
 }
 
@@ -139,9 +139,11 @@
   border-radius: var(--radius-sm);
   background: rgb(var(--color-bg-main-rgb) / 0.96);
   color: var(--color-text-primary);
-  box-shadow: 0 4px 12px rgb(var(--color-black-rgb) / 0.08);
+  box-shadow: 0 2px 8px rgb(var(--color-black-rgb) / 0.04);
 
-  @include interactive-hover-light;
+  &:focus-visible {
+    outline-offset: -3px;
+  }
 }
 
 .new-arrival-card__product img {

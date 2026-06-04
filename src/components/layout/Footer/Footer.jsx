@@ -44,7 +44,7 @@ function FooterToggle({ title, children }) {
         onClick={() => setIsOpen((current) => !current)}
       >
         {title}
-        <ArrowIcon size={iconSize.xs} aria-hidden="true" />
+        <ArrowIcon size={iconSize.xxs} aria-hidden="true" />
       </button>
       <div className="site-footer__toggle-panel">
         <div className="site-footer__toggle-inner">{children}</div>
@@ -85,7 +85,7 @@ function Footer() {
         {serviceColumns.map((column) => (
           <section key={column.title} className="site-footer__service">
             <h2>
-              <CallIcon size={iconSize.sm} aria-hidden="true" />
+              <CallIcon size={iconSize.xs} aria-hidden="true" />
               {column.title}
             </h2>
             <p>{column.time}</p>
@@ -118,7 +118,7 @@ function Footer() {
         {standaloneMenus.map((menu) => (
           <InactiveFooterLink key={menu} className="site-footer__menu-button">
             {menu}
-            <ArrowIcon size={iconSize.xs} aria-hidden="true" />
+            <ArrowIcon size={iconSize.xxs} aria-hidden="true" />
           </InactiveFooterLink>
         ))}
       </div>
