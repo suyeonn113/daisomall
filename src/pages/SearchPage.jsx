@@ -1,39 +1,28 @@
-import { useState, useEffect } from 'react'
-import { searchProducts } from '../services/productService'
+import { useProducts } from '../hooks/useProducts'
 import ProductCardList from '../components/common/ProductCardList/ProductCardList'
 import './SearchPage.scss'
 
 function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  useEffect(()=>{
-    const result = searchProducts(searchQuery);
-    setFilteredProducts(result);
-  },[searchQuery]);
-
-  const handleInputChange = (e) => {
-    setSearchQuery(e.target.value)
-  }
+  const { searchQuery, filteredProducts, handleInputChange } = useProducts();
 
   return (
     <section className='page-placeholder'>
-      <h1>검색</h1>
       <div className='search-container'>
         <input 
         type='text'
+        name='search-input'
         value={searchQuery}
         onChange={handleInputChange}
         className='search-input'
+        spellCheck={false}
+        placeholder='검색어를 입력하세요'
         />
       </div>
 
       <div className='search-result'>
         {filteredProducts.length > 0 ? (
           <ProductCardList products={filteredProducts}/>
-        ):(
-          <p className='no-result'>검색 결과가 없습니다.</p>
-        )}
+        ): searchQuery === '' ? (null):(<p className='no-result'>검색 결과가 없습니다.</p>)}
       </div>
     </section>
   )

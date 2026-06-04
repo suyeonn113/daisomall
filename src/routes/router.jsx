@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage'
 import ProductDetailPage from '../pages/ProductDetailPage'
 import CategoryPage from '../pages/CategoryPage'
 import PromotionPage from '../pages/PromotionPage'
+import SearchPage from '../pages/SearchPage'
 import StoreReadyPage from '../pages/StoreReadyPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import { PATHS } from './paths'
@@ -28,7 +29,7 @@ export const router = createBrowserRouter(
         },
         {
           path: PATHS.search,
-          element: <StoreReadyPage />,
+          element: <SearchPage />,
         },
         {
           path: 'store',
