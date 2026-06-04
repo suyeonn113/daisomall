@@ -19,6 +19,7 @@ export const categoryDrawerData = {
   mainCategories: [
     { id: 'daily-special', label: '국민득템' },
     { id: 'beauty-hygiene', label: '뷰티/위생' },
+    { id: 'kitchen', label: '주방용품' },
     { id: 'clean-bath', label: '청소/욕실' },
     { id: 'storage', label: '수납/정리' },
     { id: 'stationery', label: '문구/팬시' },
