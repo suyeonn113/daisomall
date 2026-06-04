@@ -17,8 +17,7 @@ function NewArrivalVideoCard({ content }) {
   return (
     <article className="new-arrival-card">
       <div className="new-arrival-card__media">
-        {/*임시로 스타일주었음*/}
-        <video src={getPublicAssetPath(content.image)} autoPlay loop muted  playsInline alt="" style={{width:'100%', height:'100%', objectFit:'cover'}}/>
+        <video src={getPublicAssetPath(content.image)} autoPlay loop muted playsInline />
         {/*<img src={getPublicAssetPath(content.image)} alt="" />*/}
         {relatedProducts.length ? (
           <button
