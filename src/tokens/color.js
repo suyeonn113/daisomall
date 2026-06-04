@@ -29,6 +29,9 @@ export const color = {
   bgDark: 'var(--color-bg-dark)',
   bgBackdrop: 'var(--color-bg-backdrop)',
   bgHeader: 'var(--color-bg-header)',
+  badgeProductBg: 'var(--color-badge-product-bg)',
+  badgeProductAccent: 'var(--color-badge-product-accent)',
+  badgeProductHighlight: 'var(--color-badge-product-highlight)',
 
   borderPrimary: 'var(--color-border-primary)',
   borderSecondary: 'var(--color-border-secondary)',
