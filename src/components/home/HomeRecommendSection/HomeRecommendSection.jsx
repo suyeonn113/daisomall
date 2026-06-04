@@ -5,7 +5,7 @@ import { useProducts } from '../../../hooks/useProducts'
 import './HomeRecommendSection.scss'
 
 function HomeRecommendSection() {
-  const {recommendedProducts} = useProducts();
+  const { recommendedProducts,  productsByCategory } = useProducts();
 
   return (
     <section className="home-section">

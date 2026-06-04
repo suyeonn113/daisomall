@@ -10,22 +10,21 @@ import {
   searchProducts
 } from '../services/productService';
 
-export function useProducts() {
+export function useProducts(categoryId) {
   const products = useMemo(()=> getProducts(), []);
-  const recommendedProducts = useMemo(()=> getRecommendedProducts(), []);
+  const recommendedProducts = useMemo(()=> getRecommendedProducts(categoryId), [categoryId]);
+  const productsByCategory = useMemo(()=>getProductsByCategory(categoryId),[categoryId]);
+  
   const newProducts = useMemo(() => getNewProducts(), []);
   
   /*-- searchPorducts --*/
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  useEffect(()=>{
+  const filteredProducts = useMemo(() => {
     if(!searchQuery || !searchQuery.trim()){
-      setFilteredProducts([]);
-      return;
+      return[];
     }
-    const result = searchProducts(searchQuery);
-    setFilteredProducts(result || []);
-  },[searchQuery]);
+    return searchProducts(searchQuery);
+  }, [searchQuery]);
   
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value)
@@ -42,7 +41,7 @@ export function useProducts() {
 
     getProductById,
     getProductsByIds,
-    getProductsByCategory,
+    productsByCategory,
     getRankedProducts,
   }
 }
