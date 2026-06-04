@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Header from '../components/layout/Header/Header'
 import CategoryDrawer from '../components/layout/CategoryDrawer/CategoryDrawer'
 import Footer from '../components/layout/Footer/Footer'
@@ -9,6 +9,12 @@ import './MainLayout.scss'
 
 function MainLayout() {
   const [isCategoryDrawerOpen, setIsCategoryDrawerOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   const handleCategoryDrawerToggle = () => {
     setIsCategoryDrawerOpen((isOpen) => !isOpen)
   }

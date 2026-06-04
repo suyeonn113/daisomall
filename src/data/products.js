@@ -1005,7 +1005,7 @@ export const products = [
     rank: 6,
   },
   {
-    id: 'product-7',
+    id: 'product-67',
     name: '투명 수납함 중',
     price: 2000,
     rating: 4.7,
