@@ -1,5 +1,7 @@
-import { getProducts } from '../services/productService'
+import {useMemo} from 'react'
+import { getRankedProducts } from '../services/productService'
 
-export function useRankingProducts() {
-  return getProducts()
+export function useRankingProducts(categoryId) {
+  const rankedProducts = useMemo(() => getRankedProducts(categoryId), [categoryId]);
+  return {rankedProducts};
 }

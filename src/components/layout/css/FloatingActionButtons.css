@@ -1,0 +1,92 @@
+/* ================================
+   FUNCTIONS
+================================ */
+/* ================================
+   MAPS
+================================ */
+/* Sass-only values used by functions and mixins. */
+/* =========================
+   BREAKPOINT
+========================= */
+/* =========================
+   SPACING
+========================= */
+/* =========================
+   FONT SIZE
+========================= */
+/* =========================
+   RADIUS
+========================= */
+/* =========================
+   Z-INDEX
+========================= */
+/* =========================
+   PX to REM
+========================= */
+/* =========================
+   MAP GETTERS
+========================= */
+/* ================================
+   MIXINS
+================================ */
+/* =========================
+   RESPONSIVE
+========================= */
+/* =========================
+   FLEX / GRID
+========================= */
+/* =========================
+   UI
+========================= */
+/* =========================
+   TYPOGRAPHY
+========================= */
+/* =========================
+   TRANSITION
+========================= */
+/* =========================
+   INTERACTIVE HOVER
+========================= */
+.floating-action-buttons {
+  position: fixed;
+  right: var(--floating-action-right);
+  bottom: var(--floating-action-bottom);
+  z-index: 30;
+  display: grid;
+  gap: var(--space-2);
+}
+@media (min-width: 768px) {
+  .floating-action-buttons {
+    gap: var(--space-3);
+  }
+}
+@media (min-width: 768px) {
+  .floating-action-buttons {
+    bottom: var(--space-5);
+  }
+}
+
+.floating-action-button {
+  display: grid;
+  width: var(--floating-action-size);
+  height: var(--floating-action-size);
+  place-items: center;
+  color: inherit;
+  border: var(--line-thin) solid var(--color-border-primary);
+  border-radius: var(--radius-circle);
+  background: var(--color-bg-main);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
+}
+@media (hover: hover) and (pointer: fine) {
+  .floating-action-button {
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+  .floating-action-button:hover {
+    opacity: 0.8;
+  }
+}
+
+.floating-action-button--top svg {
+  transform: rotate(-90deg);
+}/*# sourceMappingURL=FloatingActionButtons.css.map */

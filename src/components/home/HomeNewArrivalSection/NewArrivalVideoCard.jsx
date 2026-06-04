@@ -1,21 +1,25 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { products } from '../../../data/products'
+import { useProducts } from '../../../hooks/useProducts'
 import { formatPrice } from '../../../utils/formatPrice'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
 import { BagIcon } from '../../icons'
 
 function NewArrivalVideoCard({ content }) {
+  const {products} = useProducts();
   const [isProductsOpen, setIsProductsOpen] = useState(false)
-  const relatedProducts = content.relatedProductIds
-    ?.map((productId) => products.find((product) => product.id === productId))
-    .filter(Boolean)
-    ?? []
+
+  const relatedProducts = useMemo(()=>{
+    if(!products) return [];
+    return products.filter((products)=>content.relatedProductIds.includes(products.id))
+  },[products, content.relatedProductIds]);
 
   return (
     <article className="new-arrival-card">
       <div className="new-arrival-card__media">
-        <img src={getPublicAssetPath(content.image)} alt="" />
+        {/*임시로 스타일주었음*/}
+        <video src={getPublicAssetPath(content.image)} autoPlay loop muted  playsInline alt="" style={{width:'100%', height:'100%', objectFit:'cover'}}/>
+        {/*<img src={getPublicAssetPath(content.image)} alt="" />*/}
         {relatedProducts.length ? (
           <button
             type="button"

@@ -1,0 +1,101 @@
+/* ================================
+   FUNCTIONS
+================================ */
+/* ================================
+   MAPS
+================================ */
+/* Sass-only values used by functions and mixins. */
+/* =========================
+   BREAKPOINT
+========================= */
+/* =========================
+   SPACING
+========================= */
+/* =========================
+   FONT SIZE
+========================= */
+/* =========================
+   RADIUS
+========================= */
+/* =========================
+   Z-INDEX
+========================= */
+/* =========================
+   PX to REM
+========================= */
+/* =========================
+   MAP GETTERS
+========================= */
+/* ================================
+   MIXINS
+================================ */
+/* =========================
+   RESPONSIVE
+========================= */
+/* =========================
+   FLEX / GRID
+========================= */
+/* =========================
+   UI
+========================= */
+/* =========================
+   TYPOGRAPHY
+========================= */
+/* =========================
+   TRANSITION
+========================= */
+/* =========================
+   INTERACTIVE HOVER
+========================= */
+.bottom-tab-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  height: var(--bottom-tab-height);
+  border-top: var(--line-thin) solid var(--color-line);
+  background: var(--color-bg);
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .bottom-tab-bar {
+    display: none;
+  }
+}
+
+.bottom-tab-bar__item {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  color: var(--color-text);
+  font-size: 11px;
+}
+@media (min-width: 768px) {
+  .bottom-tab-bar__item {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  .bottom-tab-bar__item {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1280px) {
+  .bottom-tab-bar__item {
+    font-size: 12px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .bottom-tab-bar__item {
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+  .bottom-tab-bar__item:hover {
+    opacity: 0.7;
+  }
+}/*# sourceMappingURL=BottomTabBar.css.map */
