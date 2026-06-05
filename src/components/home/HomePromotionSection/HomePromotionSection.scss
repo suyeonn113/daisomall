@@ -161,7 +161,7 @@
 
 .promotion-card__media strong {
   position: absolute;
-  right: var(--space-3);
+  right: var(--space-2);
   bottom: var(--space-3);
   left: var(--space-3);
   z-index: 3;
@@ -173,6 +173,7 @@
   text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-hard);
 
   @include text-size(body-lg);
+
 }
 
 .promotion-card:not(.is-active) .promotion-card__media strong {

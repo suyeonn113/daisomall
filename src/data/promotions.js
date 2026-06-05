@@ -92,7 +92,7 @@ export const promotionGroups = {
   popular: createPromotionGroup('popular', [
     {
       id: 'popular-new',
-      title: '베이직하우스 플러스+ 최초런칭',
+      title: '베이직하우스 플러스 최초런칭',
       shortTitle: '베이직웨어\n첫 공개',
       subtitle: '281,068명 봤어요',
       imageFile: 'popular-01.webp',
