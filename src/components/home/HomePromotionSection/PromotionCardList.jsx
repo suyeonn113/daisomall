@@ -52,7 +52,13 @@ function PromotionCardList({ promotions, variant }) {
               <div className="promotion-card__media">
                 <img src={getPublicAssetPath(promotion.image)} alt="" />
                 <strong>
-                  <span>{promotion.title}</span>
+                  <span className="promotion-card__title-text">
+                    <span className="promotion-card__title-full">{promotion.title}</span>
+
+                    {promotion.shortTitle && (
+                      <span className="promotion-card__title-short">{promotion.shortTitle}</span>
+                    )}
+                  </span>
 
                   {isCategoryVariant && (
                     <ArrowIcon
