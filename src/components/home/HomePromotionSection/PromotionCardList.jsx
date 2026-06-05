@@ -43,14 +43,22 @@ function PromotionCardList({ promotions, variant }) {
                     {promotion.ranking.direction === 'up' && '▲'}
                     {promotion.ranking.direction === 'down' && '▼'}
                     {promotion.ranking.direction === 'same' && '-'}
-                    {promotion.ranking.change}
+                    {promotion.ranking.direction === 'new' && 'N'}
+
+                    {promotion.ranking.direction !== 'new' && promotion.ranking.change}
                   </span>
                 </div>
               )}
               <div className="promotion-card__media">
                 <img src={getPublicAssetPath(promotion.image)} alt="" />
                 <strong>
-                  <span>{promotion.title}</span>
+                  <span className="promotion-card__title-text">
+                    <span className="promotion-card__title-full">{promotion.title}</span>
+
+                    {promotion.shortTitle && (
+                      <span className="promotion-card__title-short">{promotion.shortTitle}</span>
+                    )}
+                  </span>
 
                   {isCategoryVariant && (
                     <ArrowIcon

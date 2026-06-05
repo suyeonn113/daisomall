@@ -144,9 +144,24 @@
   color: var(--color-text-secondary);
 }
 
+.promotion-card__rank-change.is-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--icon-size-xs);
+  block-size: var(--icon-size-xs);
+  background: var(--color-brand-red);
+  color: var(--color-text-inverse);
+  font-size: calc(var(--icon-size-xs) * 0.7);
+  font-weight: 800;
+  line-height: 1;
+  border-radius: var(--line-thin);
+  transform: translateY(-1px);
+}
+
 .promotion-card__media strong {
   position: absolute;
-  right: var(--space-3);
+  right: var(--space-2);
   bottom: var(--space-3);
   left: var(--space-3);
   z-index: 3;
@@ -158,16 +173,20 @@
   text-shadow: 0 var(--line-thin) var(--space-2) var(--color-black-hard);
 
   @include text-size(body-lg);
+
 }
 
 .promotion-card:not(.is-active) .promotion-card__media strong {
   @include text-size(caption);
-  font-weight: 400;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .promotion-card .promotion-card__media strong span {
   min-width: 0;
 }
+
+
 
 .promotion-card__title-icon,
 .promotion-card__corner-icon {
@@ -242,9 +261,51 @@
   }
 }
 
+
+
+.promotion-card__title-full {
+  display: block;
+}
+
+.promotion-card__title-short {
+  display: none;
+  white-space: pre;
+}
+
+.promotion-card-list.is-vertical {
+  .promotion-card:not(.is-active) {
+    .promotion-card__title-full {
+      display: none;
+    }
+
+    .promotion-card__title-short {
+      display: block;
+    }
+
+    .promotion-card__media strong {
+      left: 0;
+      right: 0;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .promotion-card__title-text {
+      display: block;
+      inline-size: 60px;
+      text-align: left;
+    }
+  }
+}
+
 @include respond-up(mobile) {
   .promotion-card-list {
     &.is-horizontal {
+      .promotion-card:not(.is-active) .promotion-card__media strong {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+      }
+
       .promotion-card:nth-child(n + 4) {
         display: flex;
       }
@@ -265,7 +326,7 @@
         display: none;
       }
     }
-  }
+  } 
 }
 
 @include respond-up(tablet) {
@@ -274,13 +335,20 @@
   }
 
   .promotion-card-list {
-    
 
     &.is-horizontal {
       aspect-ratio: 5 / 2;
       --promotion-active-grow: 6;
 
       flex-direction: row;
+
+      .promotion-card:not(.is-active) .promotion-card__media strong {
+        top: auto;
+         bottom: var(--space-3);
+        right: var(--space-2);
+        left: var(--space-2);
+        transform: none;
+      }
 
       .promotion-card:nth-child(n + 5) {
         display: none;
@@ -299,6 +367,20 @@
       .promotion-card:nth-child(n + 8) {
         display: none;
       }
+
+      .promotion-card:not(.is-active) {
+        .promotion-card__media strong {
+          left: var(--space-3);
+          right: var(--space-3);
+          justify-content: flex-start;
+          text-align: left;
+        }
+
+        .promotion-card__title-text {
+          inline-size: auto;
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -309,6 +391,19 @@
     --promotion-active-grow: 1;
 
     overflow: visible;
+
+    &.is-horizontal,
+    &.is-vertical {
+      .promotion-card:not(.is-active) {
+        .promotion-card__title-full {
+          display: block;
+        }
+
+        .promotion-card__title-short {
+          display: none;
+        }
+      }
+    }
 
     .promotion-card {
       flex: 1 1 0;
@@ -333,12 +428,15 @@
     }
 
     .promotion-card__media strong {
-      @include text-size(body-lg);
+      @include text-size(body);
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .promotion-card:not(.is-active) .promotion-card__media strong {
-      @include text-size(body-lg);
+      @include text-size(body);
       font-weight: 700;
+      line-height: 1.35;
     }
 
     .promotion-card__title-icon,
@@ -365,6 +463,10 @@
       aspect-ratio: 11 / 5;
       display: flex;
       flex-direction: row;
+
+      .promotion-card__media strong {
+          min-height: 42px;
+      }
 
       .promotion-card__rank {
         @include text-size(body-lg);
@@ -397,6 +499,7 @@
       }
     }
   }
+
 }
 
 @include respond-up(desktop) {

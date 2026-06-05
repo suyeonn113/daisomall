@@ -31,14 +31,14 @@ export const newArrivalContents = [
     id: 'new-arrival-5',
     title: '가볍게 바꾸는 욕실 정리',
     subtitle: '욕실 수납 꿀템',
-    image: '/images/home-new-arrival/ex03.webp',
-    relatedProductIds: ['product-1', 'product-2', 'product-3', 'product-4', 'product-5', 'product-6', 'product-7'],
+    image: '/images/home-new-arrival/newArrival05.webm',
+    relatedProductIds: ['product-45', 'product-54', 'product-56', 'product-67', 'product-71', 'product-74', 'product-70'],
   },
   {
     id: 'new-arrival-6',
     title: '작지만 쓸모 있는 책상템',
     subtitle: '정리와 꾸미기',
-    image: '/images/home-new-arrival/ex03.webp',
-    relatedProductIds: ['product-1', 'product-2', 'product-3', 'product-4', 'product-5', 'product-6', 'product-7'],
+    image: '/images/home-new-arrival/newArrival06.webm',
+    relatedProductIds: ['product-61', 'product-69', 'product-72', 'product-80', 'product-74', 'product-81', 'product-101'],
   },
 ]
