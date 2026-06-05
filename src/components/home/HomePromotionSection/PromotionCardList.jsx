@@ -43,7 +43,9 @@ function PromotionCardList({ promotions, variant }) {
                     {promotion.ranking.direction === 'up' && '▲'}
                     {promotion.ranking.direction === 'down' && '▼'}
                     {promotion.ranking.direction === 'same' && '-'}
-                    {promotion.ranking.change}
+                    {promotion.ranking.direction === 'new' && 'N'}
+
+                    {promotion.ranking.direction !== 'new' && promotion.ranking.change}
                   </span>
                 </div>
               )}

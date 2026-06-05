@@ -299,7 +299,7 @@ export const promotionGroups = {
       imageFile: 'purchase-05.webp',
       ranking: {
         rank: 5,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -332,7 +332,7 @@ export const promotionGroups = {
       imageFile: 'purchase-08.webp',
       ranking: {
         rank: 8,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -354,7 +354,7 @@ export const promotionGroups = {
       imageFile: 'purchase-10.webp',
       ranking: {
         rank: 10,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -376,7 +376,7 @@ export const promotionGroups = {
       imageFile: 'purchase-12.webp',
       ranking: {
         rank: 12,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -387,7 +387,7 @@ export const promotionGroups = {
       imageFile: 'purchase-13.webp',
       ranking: {
         rank: 13,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -398,7 +398,7 @@ export const promotionGroups = {
       imageFile: 'purchase-14.webp',
       ranking: {
         rank: 14,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },
@@ -409,7 +409,7 @@ export const promotionGroups = {
       imageFile: 'purchase-15.webp',
       ranking: {
         rank: 15,
-        direction: 'same',
+        direction: 'new',
         change: 0,
       },
     },

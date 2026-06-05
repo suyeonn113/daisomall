@@ -144,6 +144,21 @@
   color: var(--color-text-secondary);
 }
 
+.promotion-card__rank-change.is-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--icon-size-xs);
+  block-size: var(--icon-size-xs);
+  background: var(--color-brand-red);
+  color: var(--color-text-inverse);
+  font-size: calc(var(--icon-size-xs) * 0.7);
+  font-weight: 800;
+  line-height: 1;
+  border-radius: var(--line-thin);
+  transform: translateY(-1px);
+}
+
 .promotion-card__media strong {
   position: absolute;
   right: var(--space-3);
