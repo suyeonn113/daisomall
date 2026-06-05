@@ -25,7 +25,7 @@
 
   @include respond-up(tablet) {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: var(--space-6);
     width: 100%;
@@ -128,6 +128,16 @@
   display: grid;
   gap: var(--space-5);
   margin-bottom: var(--space-8);
+
+
+   @include respond-up(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  @include respond-up(laptop) {
+    column-gap: var(--space-6);
+  }
 }
 
 .site-footer__service {
