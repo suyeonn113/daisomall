@@ -119,6 +119,12 @@
   min-width: 0;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .product-card-list.is-ranked .product-card:hover {
+    transform: none;
+  }
+}
+
 .product-card-list.is-ranked .product-card__rank {
   position: static;
   width: var(--ranking-number-width);
