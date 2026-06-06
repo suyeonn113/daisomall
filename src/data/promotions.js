@@ -310,7 +310,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-living',
-      title: '장벽엔 후- 후시덤 신상 출시',
+      title: '장벽엔 후- 후시덤 신상',
       shortTitle: '후시덤\n장벽 케어',
       subtitle: '구매 급상승',
       imageFile: 'purchase-04.webp',

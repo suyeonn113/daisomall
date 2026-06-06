@@ -163,7 +163,7 @@
   position: absolute;
   right: var(--space-2);
   bottom: var(--space-3);
-  left: var(--space-3);
+  left: var(--space-2);
   z-index: 3;
   display: flex;
   align-items: center;
@@ -432,6 +432,10 @@
       font-weight: 700;
       line-height: 1.35;
     }
+    
+    .promotion-card__title-text {
+      white-space: pre-line;
+    }
 
     .promotion-card:not(.is-active) .promotion-card__media strong {
       @include text-size(body);
@@ -464,9 +468,7 @@
       display: flex;
       flex-direction: row;
 
-      .promotion-card__media strong {
-          min-height: 42px;
-      }
+      
 
       .promotion-card__rank {
         @include text-size(body-lg);
