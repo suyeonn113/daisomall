@@ -342,9 +342,19 @@
 
       flex-direction: row;
 
-      .promotion-card:not(.is-active) .promotion-card__media strong {
+      .promotion-card:not(.is-active) {
+    .promotion-card__title-full {
+      display: none;
+    }
+
+    .promotion-card__title-short {
+      display: block;
+    }
+    }
+
+    .promotion-card:not(.is-active) .promotion-card__media strong {
         top: auto;
-         bottom: var(--space-3);
+        bottom: var(--space-3);
         right: var(--space-2);
         left: var(--space-2);
         transform: none;
@@ -370,7 +380,7 @@
 
       .promotion-card:not(.is-active) {
         .promotion-card__media strong {
-          left: var(--space-3);
+          left: var(--space-2);
           right: var(--space-3);
           justify-content: flex-start;
           text-align: left;
