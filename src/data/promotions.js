@@ -298,7 +298,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-bath',
-      title: '착 달라붙는 자석 수납🧲',
+      title: '착 달라붙는 자석\n수납🧲',
       shortTitle: '착붙 자석\n수납템',
       subtitle: '구매 급상승',
       imageFile: 'purchase-03.webp',
@@ -346,7 +346,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-kitchen',
-      title: '여름 완구\n총집합',
+      title: '여름 완구 총집합',
       shortTitle: '여름 완구\n총집합',
       subtitle: '구매 급상승',
       imageFile: 'purchase-07.webp',
