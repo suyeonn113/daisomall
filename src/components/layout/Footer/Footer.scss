@@ -267,7 +267,7 @@
   margin-bottom: var(--space-8);
 
    @include respond-up(laptop) {
-    gap: var(--space-8);
+    gap: var(--space-5);
   }
 }
 
