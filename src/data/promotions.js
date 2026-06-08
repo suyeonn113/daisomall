@@ -153,7 +153,7 @@ export const promotionGroups = {
     {
       id: 'popular-new',
       title: '다이소 X HEAD 러닝웨어',
-      shortTitle: 'HEAD와 함께\n러닝 준비',
+      shortTitle: 'HEAD와\n러닝 준비',
       subtitle: '144,980명 봤어요',
       imageFile: 'popular-06.webp',
       ranking: {
@@ -188,7 +188,7 @@ export const promotionGroups = {
     },
     {
       id: 'popular-weekly',
-      title: '야구 모드ON 덕질생활 시리즈',
+      title: '야구 모드ON 덕질 시리즈',
       shortTitle: '야구팬\n덕질템',
       subtitle: '132,412명 봤어요',
       imageFile: 'popular-09.webp',
@@ -298,7 +298,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-bath',
-      title: '착 달라붙는 자석 수납🧲',
+      title: '착 달라붙는 자석\n수납🧲',
       shortTitle: '착붙 자석\n수납템',
       subtitle: '구매 급상승',
       imageFile: 'purchase-03.webp',
@@ -310,7 +310,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-living',
-      title: '장벽엔 후- 후시덤 신상 출시',
+      title: '장벽엔 후- 후시덤 신상',
       shortTitle: '후시덤\n장벽 케어',
       subtitle: '구매 급상승',
       imageFile: 'purchase-04.webp',
@@ -358,7 +358,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-bath',
-      title: '야구 모드ON 덕질생활 시리즈',
+      title: '야구 모드ON 덕질 시리즈',
       shortTitle: '야구팬\n덕질템',
       subtitle: '구매 급상승',
       imageFile: 'purchase-08.webp',
@@ -382,7 +382,7 @@ export const promotionGroups = {
     },
     {
       id: 'purchase-beauty',
-      title: '1일 1팩 500원 마스크시트',
+      title: '1일 1팩 마스크시트',
       shortTitle: '매일 1팩\n마스크팩',
       subtitle: '구매 급상승',
       imageFile: 'purchase-10.webp',
