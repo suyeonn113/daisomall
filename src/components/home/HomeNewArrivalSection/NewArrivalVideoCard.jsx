@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useProducts } from '../../../hooks/useProducts'
 import { formatPrice } from '../../../utils/formatPrice'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
-import { BagIcon } from '../../icons'
 
 function NewArrivalVideoCard({ content }) {
   const {products} = useProducts();
@@ -26,7 +25,21 @@ function NewArrivalVideoCard({ content }) {
             aria-expanded={isProductsOpen}
             onClick={() => setIsProductsOpen((current) => !current)}
           >
-            <BagIcon></BagIcon>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M11 5.5V16.5M5.5 11H16.5"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="square"
+              />
+            </svg>
           </button>
         ) : null}
         <div className="new-arrival-card__copy">

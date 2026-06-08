@@ -133,11 +133,20 @@
 
 .product-card-list.is-ranked .product-card__rank {
   position: static;
+  display: grid;
+  gap: 2px;
   width: var(--ranking-number-width);
   color: var(--color-text-primary);
   line-height: 1;
   text-align: left;
   font-variant-numeric: tabular-nums;
+}
+
+.product-card-list.is-ranked .product-card__rank::after {
+  content: '';
+  width: 0.72em;
+  height: var(--line-thin);
+  background: currentColor;
 }
 
 .product-card-list.is-ranked .product-card__image-wrap {

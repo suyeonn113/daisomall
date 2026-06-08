@@ -21,6 +21,7 @@ import {
 import './Footer.scss'
 
 const appIcon = '/images/footer/app-order-icon.svg'
+const servicePhones = ['1599-2211', '1522-4400']
 
 
 
@@ -53,6 +54,50 @@ function FooterToggle({ title, children }) {
   )
 }
 
+function FooterServiceSummary({ column, phone }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <section className={`site-footer__service ${isOpen ? 'is-open' : ''}`}>
+      <h2>
+        <CallIcon size={iconSize.xs} aria-hidden="true" />
+        {column.title}
+      </h2>
+      <strong className="site-footer__service-phone">{phone}</strong>
+      <p>{column.time}</p>
+      <button
+        type="button"
+        className="site-footer__service-toggle"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M7 3V11M3 7H11"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="square"
+          />
+        </svg>
+      </button>
+      <ul>
+        {column.links.map((link) => (
+          <li key={link}>
+            <Link to="/store">{link}</Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="site-footer">
@@ -69,6 +114,7 @@ function Footer() {
       </div>
 
       <div className="site-footer__store-list" aria-label="앱 다운로드">
+        <p className="site-footer__app-message">앱에서 더 편하게 이용해보세요</p>
         {appButtons.map((button) => (
           <Link key={button.id} to="/store" className="site-footer__store-button">
             <img src={getPublicAssetPath(button.image)} alt={button.alt} />
@@ -82,21 +128,12 @@ function Footer() {
       </div>
 
       <div className="site-footer__services">
-        {serviceColumns.map((column) => (
-          <section key={column.title} className="site-footer__service">
-            <h2>
-              <CallIcon size={iconSize.xs} aria-hidden="true" />
-              {column.title}
-            </h2>
-            <p>{column.time}</p>
-            <ul>
-              {column.links.map((link) => (
-                <li key={link}>
-                  <Link to="/store">{link}</Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+        {serviceColumns.map((column, index) => (
+          <FooterServiceSummary
+            key={column.title}
+            column={column}
+            phone={servicePhones[index]}
+          />
         ))}
       </div>
 
@@ -131,7 +168,7 @@ function Footer() {
             className={`site-footer__social-link ${className}`}
             aria-label={label}
           >
-            <Icon size={iconSize.lg} />
+            <Icon size={iconSize.sm} />
           </Link>
         ))}
       </div>

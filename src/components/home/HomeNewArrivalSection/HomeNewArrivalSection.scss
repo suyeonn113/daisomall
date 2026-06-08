@@ -114,7 +114,7 @@
   position: absolute;
   inset: 0;
   z-index: 4;
-  padding: var(--space-2);
+  padding: var(--space-3);
   background: rgb(var(--color-white-rgb) / 0.96);
   backdrop-filter: blur(10px);
 }
@@ -123,7 +123,7 @@
   height: calc(100% - var(--space-10) - var(--space-3));
   align-content: start;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-2);
+  gap: var(--space-3);
   display: grid;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -135,14 +135,14 @@
 
 .new-arrival-card__product {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-columns: 78px minmax(0, 1fr);
   @include respond-up(tablet) {
-    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-columns: 94px minmax(0, 1fr);
   }
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   min-width: 0;
-  padding: var(--space-1);
+  padding: var(--space-2);
   border-radius: var(--radius-sm);
   background: rgb(var(--color-bg-main-rgb) / 0.96);
   color: var(--color-text-primary);
@@ -158,7 +158,6 @@
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: var(--radius-xs);
 }
 
 .new-arrival-card__product span {
@@ -182,9 +181,9 @@
   font-style: normal;
   font-weight: 800;
 
-  @include text-size(caption);
+  @include text-size(body);
   @include respond-up(tablet) {
-    @include text-size(body);
+    @include text-size(title);
   }
 }
 
@@ -192,8 +191,8 @@
   color: var(--color-text-secondary);
   font-style: normal;
 
-  @include text-size(micro);
+  @include text-size(caption);
     @include respond-up(tablet) {
-    @include text-size(caption);
+    @include text-size(body);
   }
 }

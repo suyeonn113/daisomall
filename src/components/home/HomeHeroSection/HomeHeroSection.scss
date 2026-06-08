@@ -198,7 +198,6 @@
     grid-template-columns: 1fr 1.2fr 1.2fr 1.2fr 1fr;
     grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: var(--space-1);
-    width: min(100%, get-breakpoint(desktop-lg));
     max-height: 100svh;
     margin-inline: auto;
     aspect-ratio: 16 / 7;

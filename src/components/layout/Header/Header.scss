@@ -5,12 +5,14 @@
   position: sticky;
   top: 0;
   z-index: get-z(sticky);
+  width: 100%;
+  background: var(--color-bg-main);
   color: var(--color-text-primary);
-
-  @include mobile-shell;
 }
 
 .site-header__content {
+  @include mobile-shell;
+
   background: rgb(var(--color-bg-main-rgb) / 1.0);
   transition: transform var(--duration-base) var(--ease-standard);
 }
