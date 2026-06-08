@@ -1,14 +1,14 @@
 @use '../styles/foundation/mixins' as *;
 
 .search-page-placeholder {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
+  position: static;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  padding-bottom: var(--bottom-tab-height);
   color: var(--color-text-primary);
+  
 
   @include respond-up(tablet) {
     position: static;
@@ -19,9 +19,25 @@
   }
 }
 
+@include respond-up(tablet) {
+  .search-result {
+    width: 100%;
+    max-width: var(--layout-content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+
+  .recommend {
+    width: 100%;
+    max-width: var(--layout-content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+}
+
 .search-result {
   flex: 1;
-  align-self: center;
+  align-self: stretch;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   min-width: 0;

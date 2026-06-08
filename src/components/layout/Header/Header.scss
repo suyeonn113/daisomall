@@ -10,6 +10,15 @@
   color: var(--color-text-primary);
 }
 
+/* Hide main header on search route for mobile so search input can be top-most */
+.app-shell.is-search-route {
+  @include respond-down(tablet) {
+    .site-header {
+      display: none;
+    }
+  }
+}
+
 .site-header__content {
   @include mobile-shell;
 

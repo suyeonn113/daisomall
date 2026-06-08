@@ -3,7 +3,6 @@
 .search-results-view {
   display: grid;
   gap: var(--space-4);
-  padding: 0 0 96px;
 }
 
 .search-tabs {
@@ -11,7 +10,7 @@
   gap: var(--space-3);
   width: 100%;
   border-bottom: var(--line-thin) solid var(--color-border-primary);
-  @include respond-up(laptop) {
+  @include respond-up(tablet) {
     border: 0;
   }
   background: var(--color-white);
@@ -162,10 +161,6 @@
 }
 
 @media (min-width: 600px) {
-  .search-tabs {
-    padding-inline: max(24px, calc((100vw - var(--layout-content-max-width)) / 2 + 24px));
-  }
-
   .search-result-summary {
     align-items: center;
   }

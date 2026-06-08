@@ -1,14 +1,23 @@
 @use '../../styles/foundation/mixins' as *;
 
 .search-header-band {
-  position: sticky;
-  @include respond-up(tablet) {
-    position: relative;
-  }
+  position: relative;
+  left: 0;
+  right: 0;
   top: 0;
-  z-index: get-z(base) + 1;
+  z-index: get-z(sticky);
   border-bottom: 1px solid var(--color-border-primary);
   background: var(--color-bg-main);
+
+  @include respond-up(tablet) {
+    position: relative;
+    left: auto;
+    right: auto;
+  }
+}
+
+.arrowIcon-box {
+  transform: rotate(180deg);
 }
 
 .search-container {
@@ -17,10 +26,6 @@
   gap: 8px;
   min-height: 54px;
   padding: var(--space-2) var(--space-3);
-}
-
-.search-header__search-icon {
-  display: none;
 }
 
 .search-input {
@@ -54,10 +59,6 @@
 
   .search-header__back-icon {
     display: none;
-  }
-
-  .search-header__search-icon {
-    display: block;
   }
 
   .search-input {

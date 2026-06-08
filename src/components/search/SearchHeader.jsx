@@ -1,4 +1,4 @@
-import { ArrowIcon, SearchIcon } from '../icons'
+import { ArrowIcon } from '../icons'
 import { iconSize } from '../../tokens/size'
 import './SearchHeader.scss'
 
@@ -8,7 +8,6 @@ function SearchHeader({ searchQuery, onInputChange, onBack }) {
       <div className="search-container">
         <button type="button" className="arrowIcon-box" onClick={onBack} aria-label="검색 페이지 이동">
           <ArrowIcon size={iconSize.sm} className="search-header__back-icon" />
-          <SearchIcon size={iconSize.md} className="search-header__search-icon" />
         </button>
         <input
           type="text"
