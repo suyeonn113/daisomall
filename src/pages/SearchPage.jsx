@@ -1,50 +1,70 @@
+import { useMemo, useState } from 'react'
 import { useProducts } from '../hooks/useProducts'
-import SectionHeader from '../components/common/SectionHeader/SectionHeader';
-import ScrollNavigator from '../components/common/ScrollNavigator/ScrollNavigator';
-import ProductCardList from '../components/common/ProductCardList/ProductCardList'
-import { ArrowIcon } from '../components/icons';
-import { iconSize } from '../tokens/size';
+import SearchHeader from '../components/search/SearchHeader'
+import SearchHomeView from '../components/search/SearchHomeView'
+import SearchResultsView from '../components/search/SearchResultsView'
+import { getCategoryStats, getKeywordStats, getSortedProducts } from '../components/search/searchData'
 import './SearchPage.scss'
 
 function SearchPage() {
-  const { searchQuery, filteredProducts, handleInputChange, recommendedProducts } = useProducts();
+  const { products, searchQuery, filteredProducts, handleInputChange, recommendedProducts } = useProducts()
+  const [activeBadge, setActiveBadge] = useState('all')
+  const [sortType, setSortType] = useState('recommend')
+
+  const keywordStats = useMemo(() => getKeywordStats(products), [products])
+  const popularKeywords = useMemo(() => keywordStats.slice(0, 10), [keywordStats])
+  const categoryStats = useMemo(() => getCategoryStats(filteredProducts), [filteredProducts])
+  const resultProducts = useMemo(
+    () => getSortedProducts(filteredProducts, activeBadge, sortType),
+    [activeBadge, filteredProducts, sortType]
+  )
+
+  const handleKeywordSelect = (keyword) => {
+    setActiveBadge('all')
+    handleInputChange({ target: { value: keyword } })
+  }
+
+  const handleBack = () => {
+    if (searchQuery.trim()) {
+      setActiveBadge('all')
+      handleInputChange({ target: { value: '' } })
+      return
+    }
+
+    window.history.back()
+  }
+
+  const hasSearchQuery = searchQuery.trim().length > 0
+  const hasSearchResult = filteredProducts.length > 0
 
   return (
-    <section className='search-page-placeholder'>
-      <div className='search-container'>
-         <div className='arrowIcon-box' onClick={()=> window.history.back()} >
-          <ArrowIcon size={iconSize.sm}/>
-          </div>
-        <input 
-        type='text'
-        name='search-input'
-        value={searchQuery}
-        onChange={handleInputChange}
-        className='search-input'
-        spellCheck={false}
-        placeholder='검색어를 입력하세요'
-        />
+    <section className="search-page-placeholder">
+      <SearchHeader searchQuery={searchQuery} onInputChange={handleInputChange} onBack={handleBack} />
+
+      <div className="search-result">
+        {hasSearchResult ? (
+          <SearchResultsView
+            searchQuery={searchQuery}
+            filteredProducts={filteredProducts}
+            resultProducts={resultProducts}
+            categoryStats={categoryStats}
+            keywordCount={Math.min(keywordStats.length, 6)}
+            activeBadge={activeBadge}
+            sortType={sortType}
+            onBadgeChange={setActiveBadge}
+            onSortChange={setSortType}
+          />
+        ) : !hasSearchQuery ? (
+          <SearchHomeView
+            products={products}
+            popularKeywords={popularKeywords}
+            recommendedProducts={recommendedProducts}
+            onKeywordSelect={handleKeywordSelect}
+          />
+        ) : (
+          <p className="no-result">검색 결과가 없습니다.</p>
+        )}
       </div>
-
-      <div className='search-result'>
-        {filteredProducts.length > 0 ? (
-          <ProductCardList products={filteredProducts}/>
-        ): searchQuery === '' ? (
-          <div className='recommend'>
-            <SectionHeader title="이런 상품은 어떠세요?" />
-            <ScrollNavigator
-              targetSelector=".product-card-list"
-              previousLabel="이전 추천상품 보기"
-              nextLabel="다음 추천상품 보기"
-              >
-            <ProductCardList products={recommendedProducts} />
-            </ScrollNavigator>
-          </div>
-      ):
-        (<p className='no-result'>검색 결과가 없습니다.</p>)}
-      </div>
-
-
     </section>
   )
 }

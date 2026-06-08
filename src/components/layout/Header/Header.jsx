@@ -66,7 +66,9 @@ function Header({ onMenuClick }) {
             </Link>
           </div>
         </div>
-        <MainCategoryNav onCategoryClick={onMenuClick} />
+        <div className="main-category-nav-shell">
+          <MainCategoryNav onCategoryClick={onMenuClick} /> 
+        </div>
       </div>
     </header>
   )

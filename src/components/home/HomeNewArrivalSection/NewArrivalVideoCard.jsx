@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PlusIcon from '../../icons/PlusIcon'
+import { iconSize } from '../../../tokens/size'
 import { useProducts } from '../../../hooks/useProducts'
 import { formatPrice } from '../../../utils/formatPrice'
 import { getPublicAssetPath } from '../../../utils/getPublicAssetPath'
@@ -25,21 +27,7 @@ function NewArrivalVideoCard({ content }) {
             aria-expanded={isProductsOpen}
             onClick={() => setIsProductsOpen((current) => !current)}
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path
-                d="M11 5.5V16.5M5.5 11H16.5"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="square"
-              />
-            </svg>
+            <PlusIcon size={iconSize.md} />
           </button>
         ) : null}
         <div className="new-arrival-card__copy">
