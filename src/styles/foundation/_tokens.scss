@@ -135,6 +135,7 @@
   --layout-min-width: 320px;
   --layout-max-width: 430px;
   --layout-wide-width: 480px;
+  --layout-content-max-width: 1280px;
 
   --header-height: 88px;
   --header-bar-height: 42px;
@@ -191,7 +192,7 @@
   --ranking-image-size: clamp(60px, 16vw, 110px);
   --ranking-number-width: clamp(20px, 2vw, 36px);
 
-  --new-arrival-card-width: clamp(220px, 48vw, 320px);
+  --new-arrival-card-width: clamp(276px, 62vw, 376px);
   --new-arrival-card-aspect-ratio: 2 / 3;
   
   --promotion-card-height: 200px;

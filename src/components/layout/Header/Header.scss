@@ -5,12 +5,23 @@
   position: sticky;
   top: 0;
   z-index: get-z(sticky);
+  width: 100%;
+  background: var(--color-bg-main);
   color: var(--color-text-primary);
+}
 
-  @include mobile-shell;
+/* Hide main header on search route for mobile so search input can be top-most */
+.app-shell.is-search-route {
+  @include respond-down(tablet) {
+    .site-header {
+      display: none;
+    }
+  }
 }
 
 .site-header__content {
+  @include mobile-shell;
+
   background: rgb(var(--color-bg-main-rgb) / 1.0);
   transition: transform var(--duration-base) var(--ease-standard);
 }

@@ -1,15 +1,44 @@
 @use '../../../styles/foundation/functions' as *;
 @use '../../../styles/foundation/mixins' as *;
 
+.main-category-nav-shell {
+  position: relative;
+  width: 100%;
+}
+
 .main-category-nav {
+  position: relative;
   display: flex;
   @include responsive-space(gap, var(--space-2), var(--space-3));
   @include responsive-space(padding-inline, var(--space-4), var(--space-5), var(--space-6));
+  background: var(--color-bg-main);
 
   overflow-x: auto;
-  border-bottom: var(--line-thin) solid var(--color-border-primary);
   padding-block: var(--space-1);
   scrollbar-width: none;
+}
+
+.main-category-nav-shell::after {
+  content: '';
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  left: 50%;
+  height: var(--line-thin);
+  width: 100vw;
+  margin-inline: -50vw;
+  background: var(--color-border-primary);
+  pointer-events: none;
+}
+.main-category-nav-shell::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--color-bg-main);
+  z-index: -1;
 }
 
 .main-category-nav::-webkit-scrollbar {
@@ -69,6 +98,7 @@
 @include respond-up(laptop) {
   .main-category-nav {
     align-items: center;
+    padding-inline: var(--space-5);
   }
 
   .main-category-nav__link--desktop-shortcut,

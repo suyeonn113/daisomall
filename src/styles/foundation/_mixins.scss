@@ -32,6 +32,10 @@
 @mixin mobile-shell {
   width: 100%;
   margin-inline: auto;
+
+  @include respond-up(laptop) {
+    max-width: var(--layout-content-max-width);
+  }
 }
 
 @mixin page-band($background: var(--color-bg-main)) {

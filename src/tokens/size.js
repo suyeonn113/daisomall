@@ -43,6 +43,7 @@ export const layoutSize = {
   minWidth: 'var(--layout-min-width)',
   maxWidth: 'var(--layout-max-width)',
   wideWidth: 'var(--layout-wide-width)',
+  contentMaxWidth: 'var(--layout-content-max-width)',
   headerHeight: 'var(--header-height)',
   headerBarHeight: 'var(--header-bar-height)',
   headerBarHeightTablet: 'var(--header-bar-height-tablet)',
